@@ -1,0 +1,20 @@
+.header-btn{
+    background: transparent;
+    box-shadow: 0;
+    border:0;
+    color : var(--header-color);
+}
+
+.header-btn:focus {
+    outline: none;
+    outline: none;
+}
+
+.header-colors{
+    background: var(--page-background-color);
+    color: var(--header-color);
+}
+
+.img-item{
+    height: 47px;
+}
