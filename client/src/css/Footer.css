@@ -1,0 +1,15 @@
+.footer {
+    margin-top: 1rem;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 13px;
+    position: absolute;
+}
+
+.footer-nav {
+    background: var(--page-background-color);
+    color: white;
+    font-weight: 600;
+}
