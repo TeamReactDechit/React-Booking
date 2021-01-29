@@ -1,8 +1,14 @@
+import React from "react";
+import ConCarousel from "../components/ConCarousel";
+import SeatSearch from "../components/SeatSearch";
+
+
 const HomePage = () => {
   return (
-    <div className="row">
-      <div className="col-12">HomePage</div>
-    </div>
+    <>
+    <ConCarousel/>
+    <SeatSearch/>
+    </>
   );
 };
 

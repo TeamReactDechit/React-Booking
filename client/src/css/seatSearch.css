@@ -1,0 +1,25 @@
+.search-wrapper {
+    margin: 0 auto;
+    padding: 3.5rem;
+    background-color: #02122c;
+    border-radius: .25rem;
+    font-weight: 600;
+}
+
+.submit-btn {
+    background-color: var(--page-background-color)!important;
+    border-color: var(--page-background-color)!important;
+    font-weight: 600!important;
+    padding-top: 10px;
+    float: right;
+
+}
+
+.form-row {
+    padding-bottom: 10px;
+}
+
+.form-label {
+    color: white;
+    font-weight: 600;
+}

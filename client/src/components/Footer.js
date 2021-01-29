@@ -6,7 +6,7 @@ const Footer = () => (
   <div className="footer">
     <div class ="container-fluid footer-nav">
       <Navbar>
-      <Nav className = "ml-sm-2 mr-0">{new Date().getFullYear()} ©Dechit</Nav>
+      <Nav className = "ml-sm-2 mr-0">{new Date().getFullYear()}©Dechit</Nav>
       </Navbar>
     </div>
   </div>
