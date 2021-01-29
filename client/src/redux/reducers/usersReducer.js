@@ -1,4 +1,4 @@
-import * as types from "../types/usersTypes";
+import * as types from "../actionTypes";
 import initialState from "./initialState";
 
 export default function utenteReducer(state = initialState.user, action) {
