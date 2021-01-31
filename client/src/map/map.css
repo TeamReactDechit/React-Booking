@@ -1,0 +1,18 @@
+.pavimento{fill:#FFFFFF;}
+	.divano{fill:#C5C4B0;stroke:#99976B;}
+	.muro{fill:#000000;stroke:#000000;}
+	.libreria{fill:#FFDC8C;stroke:#DDAB38;}
+	.libri{fill:none;stroke:#DDAB38;stroke-miterlimit:10;}
+	.pianta{fill:#A5C882;}
+	.sedia{fill:#CCAC93;stroke:#AB907B;stroke-miterlimit:10;}
+	.tavolo{fill:#CCAC93;stroke:#AB907B;}
+	.porta{fill:#FFFFFF;stroke:#000000;}
+	.divano-singolo{fill:#C5C4B0;stroke:#AB907B;}
+
+	.stanza:hover .pavimento{
+		fill:#ececec;
+	}
+	.stanza:hover .muro{
+		fill:#da6c06;
+		stroke:#da6c06;
+	}

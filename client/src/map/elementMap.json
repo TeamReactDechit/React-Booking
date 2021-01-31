@@ -1,0 +1,356 @@
+[
+  {
+    "stanza": {
+      "id": "stanza_1",
+      "postiTotali": 4,
+      "tavoli": {
+        "tavolo": {
+          "id": "tavolo_1",
+          "posti": [
+            {
+              "sedia": {
+                "id": "sedia_1",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_2",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_3",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_4",
+                "disponibile": true
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "stanza": {
+      "id": "stanza_2",
+      "postiTotali": 4,
+      "tavoli": {
+        "tavolo": {
+          "id": "tavolo_1",
+          "posti": [
+            {
+              "sedia": {
+                "id": "sedia_1",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_2",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_3",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_4",
+                "disponibile": true
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "stanza": {
+      "id": "stanza_3",
+      "postiTotali": 4,
+      "tavoli": {
+        "tavolo": {
+          "id": "tavolo_1",
+          "posti": [
+            {
+              "sedia": {
+                "id": "sedia_1",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_2",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_3",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_4",
+                "disponibile": false
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "stanza": {
+      "id": "stanza_4",
+      "postiTotali": 10,
+      "tavoli": {
+        "tavolo": {
+          "id": "tavolo_1",
+          "posti": [
+            {
+              "sedia": {
+                "id": "sedia_1",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_2",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_3",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_4",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_5",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_6",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_7",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_8",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_9",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_10",
+                "disponibile": false
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "stanza": {
+      "id": "stanza_5",
+      "postiTotali": 18,
+      "tavoli": {
+        "tavolo": {
+          "id": "tavolo_1",
+          "posti": [
+            {
+              "sedia": {
+                "id": "sedia_1",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_2",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_3",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_4",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_5",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_6",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_7",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_8",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_9",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_10",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_11",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_12",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_13",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_14",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_15",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_16",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_17",
+                "disponibile": false
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_18",
+                "disponibile": false
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "stanza": {
+      "id": "stanza_6",
+      "postiTotali": 6,
+      "tavoli": {
+        "tavolo": {
+          "id": "tavolo_1",
+          "posti": [
+            {
+              "sedia": {
+                "id": "sedia_1",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_2",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_3",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_4",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_5",
+                "disponibile": true
+              }
+            },
+            {
+              "sedia": {
+                "id": "sedia_6",
+                "disponibile": true
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+]
