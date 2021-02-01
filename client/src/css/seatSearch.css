@@ -15,6 +15,15 @@
 
 }
 
+.cancel-btn {
+    background-color: var(--page-background-color)!important;
+    border-color: var(--page-background-color)!important;
+    font-weight: 600!important;
+    padding-top: 10px;
+    float:left;
+
+}
+
 .form-row {
     padding-bottom: 10px;
 }
@@ -23,3 +32,25 @@
     color: white;
     font-weight: 600;
 }
+
+.btn-primary:hover, .btn-primary:focus {
+    opacity: 0.8;
+}
+
+btn-check:active+.btn-primary:focus, 
+.btn-check:checked+.btn-primary:focus, 
+.btn-primary.active:focus, 
+.btn-primary:active:focus, 
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    outline: 0;
+    border-color: var(--page-background-color)!important;
+    box-shadow: 0 0 0 0.15rem var(--page-background-color)!important;
+}
+

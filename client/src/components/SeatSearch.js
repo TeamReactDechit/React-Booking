@@ -4,8 +4,8 @@ import "../css/seatSearch.css";
 import TimePicker from 'react-bootstrap-time-picker';
 
 const SeatSearch = () => (
-    <div class="container-fluid px-0">
-        <div class = "search-wrapper">
+    <div className="container-fluid px-0">
+        <div className = "search-wrapper">
             <Form>
                 <Row className="form-row pb-0">
                     <Col>
@@ -17,13 +17,16 @@ const SeatSearch = () => (
                 </Row>
                 <Row className="form-row">
                     <Col>
-                        <Form.Control type="date" class="search-date" name="dob" placeholder="" />
+                        <Form.Control type="date" className="search-date" name="dob" placeholder="" />
                     </Col>
                     <Col>
                         <TimePicker start="10:00" end="21:00" step={60}/>
                     </Col>
                 </Row>
-                <Button className = "submit-btn float-right" type="submit">
+                <Button className = "btn cancel-btn" type="reset">
+                    Cancel
+                </Button>
+                <Button className = "btn submit-btn" type="submit">
                     Submit
                 </Button>
             </Form>

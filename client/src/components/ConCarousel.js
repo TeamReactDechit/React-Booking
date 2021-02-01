@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Carousel} from 'react-bootstrap';
 import "../css/Carousel.css";
 
-function ConCarousel() {
+const ConCarousel = () => {
     const [index, setIndex] = useState(0);
   
     const handleSelect = (selectedIndex, e) => {
@@ -10,7 +10,7 @@ function ConCarousel() {
     };
   
     return (
-      <div class="container-fluid px-0">
+      <div className="container-fluid px-0">
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <img
