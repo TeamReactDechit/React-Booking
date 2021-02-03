@@ -21,7 +21,6 @@ const Login = () => {
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            autoFocus
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

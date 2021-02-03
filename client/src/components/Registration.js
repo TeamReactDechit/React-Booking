@@ -26,7 +26,6 @@ const Registration = () => {
       <Form.Group size="lg" controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
-            autoFocus
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -35,7 +34,6 @@ const Registration = () => {
         <Form.Group size="lg" controlId="surname">
           <Form.Label>Surname</Form.Label>
           <Form.Control
-            autoFocus
             type="text"
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
@@ -44,7 +42,6 @@ const Registration = () => {
         <Form.Group size="lg" controlId="birthdate">
           <Form.Label>Birtdate</Form.Label>
           <Form.Control
-            autoFocus
             type="date"
             value={birthdate}
             onChange={(e) => setBirthdate(e.target.value)}
@@ -53,7 +50,6 @@ const Registration = () => {
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            autoFocus
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

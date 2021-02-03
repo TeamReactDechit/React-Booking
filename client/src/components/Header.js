@@ -27,8 +27,8 @@ const Header = () => {
                             Benvenuto NOME UTENTE!
                             <FontAwesomeIcon className="fa-lg mx-2" icon={faUserCircle} />
                         </button>
-                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a className="dropdown-item fw-bold" href="#">Il Tuo Profilo</a></li>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">  
+                            <li><Link className="dropdown-item fw-bold" to="/dashboard">Il Tuo Profilo</Link></li>
                             <li><a className="dropdown-item fw-bold" href="#">Logout</a></li>
                         </ul>
                     </div> */}
