@@ -17,3 +17,38 @@ code {
   --page-color: #333;
   --header-color: #fff;
 }
+
+.btn-dechit{
+  font-weight: bold;
+  color: var(--header-color);
+  background-color: var(--page-background-color);
+  border: var(--page-background-color);
+
+}
+
+.btn-dechit:hover {
+  color: var(--header-color);
+  background-color: var(--page-background-color);
+  border-color: var(--page-background-color);
+}
+
+.btn-dechit.disabled, .btn-dechit:disabled {
+  color: var(--header-color);
+  background-color: var(--page-background-color);
+  border-color: var(--page-background-color);
+  opacity: 0.6;
+}
+
+.btn-dechit:active+.btn-dechit, .btn-dechit:checked+.btn-dechit, 
+.btn-dechit.active, 
+.btn-dechit:active, .show>.btn-dechit.dropdown-toggle {
+  color: var(--header-color);
+  background-color: var(--page-background-color);
+  border-color: var(--page-background-color);
+}
+
+.btn-dechit:focus+.btn-dechit, .btn-dechit:focus {
+  color: var(--header-color);
+  background-color: var(--page-background-color);
+  border-color: var(--page-background-color);
+}

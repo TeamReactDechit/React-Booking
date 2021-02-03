@@ -13,6 +13,11 @@
 .header-colors{
     background: var(--page-background-color);
     color: var(--header-color);
+    text-decoration: none;
+}
+
+.header-colors:hover{
+    color: var(--header-color);
 }
 
 .img-item{

@@ -3,6 +3,11 @@ import Logo from "../images/Logo.svg"
 import "../css/Header.css"
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    BrowserRouter as Router,
+    Link,
+    Route
+  } from "react-router-dom";
 
 const Header = () => {
 
@@ -15,8 +20,7 @@ const Header = () => {
                 </a>
                 <span>
                     <FontAwesomeIcon className="me-2 fa-lg" icon={faUserCircle} />
-                    <span className="fw-bold">LOGIN</span>
-
+                    <Link className="fw-bold header-colors" to="/login">LOGIN</Link>
                     {/* PART FOR LOGGED */}
                     {/* <div className="dropdown">
                         <button className="header-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">

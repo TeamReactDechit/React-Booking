@@ -1,0 +1,12 @@
+.login{
+  border:2px solid var(--page-background-color);
+  border-radius: 10px;
+}
+
+.login> .form-group> .form-label {
+  color: var(--page-color);
+}
+
+.container>h1{
+  color: var(--page-color);
+}
