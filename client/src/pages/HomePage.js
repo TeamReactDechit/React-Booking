@@ -5,10 +5,10 @@ import SeatSearch from "../components/SeatSearch";
 const HomePage = () => {
   return (
     <div className="row">
-      <div className="col-12 px-0">
+      <div className="container-fluid pt-4">
         <ConCarousel />
       </div>
-      <div className="col-12 px-0">
+      <div className="container-fluid pt-2">
         <SeatSearch />
       </div>
     </div>
