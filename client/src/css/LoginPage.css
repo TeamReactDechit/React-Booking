@@ -10,3 +10,7 @@
 .container>h1{
   color: var(--page-color);
 }
+
+.color-user{
+  color: var(--page-color);
+}

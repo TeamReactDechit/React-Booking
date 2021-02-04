@@ -13,8 +13,8 @@ function DashboardPage() {
         <Navbar />
         <Switch>
           <Route path='/userprofile' exact component={Userprofile} />
-          <Route path='/orders' exact component={Orders} />
-          <Route path='/changepassword' exact component={ChangePassword} />
+          <Route path='/orders'  component={Orders} />
+          <Route path='/changepassword'  component={ChangePassword} />
         </Switch>
       </Router>
     </>
