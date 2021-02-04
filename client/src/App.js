@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Confirmation from "./components/Confirmation";
 import PageNotFound from "./PageNotFound";
 import HomePage from "./pages/HomePage";
 import BookingPage from "./pages/BookingPage";

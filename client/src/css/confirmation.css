@@ -1,0 +1,52 @@
+.resume {
+    background: #fff;
+    max-width: 400px!important;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.resume h2 {
+    font-size: 1.5em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    padding: 20px 15px 15px 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.pdf-row {
+    margin: 0 15px!important;
+    padding: 7px 0px 7px!important;
+}
+
+.pdf-btn {
+    display: block!important;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.details-row span {
+    color: black;
+    font-weight: 600;
+}
+
+.timeslot {
+    padding-bottom: 8px;
+    border-bottom: 1px solid black;
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.confirmation {
+    padding-top: 30px;
+}

@@ -1,0 +1,30 @@
+
+.not-found {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.link-btn {
+    background-color: var(--page-background-color)!important;
+    border-radius: 6px;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.link-btn:focus {
+box-shadow: none;
+}
+
+.link-btn:hover,  .link-btn:active {
+text-decoration: none!important;
+color: white!important;
+background-color: var(--page-background-color)!important;
+}
+
+.sad-icon {
+    width: 8%;
+}
