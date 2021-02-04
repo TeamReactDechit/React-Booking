@@ -1,17 +1,44 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { loadLogin } from "../redux/actions/usersActions";
+import { connect } from "react-redux";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Login = ({loadLogin, history }) => {
+  const [user, setUser] = useState();
+  const [errors, setErrors] = useState({});
 
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    const { username, password } = user;
+    const errors = {};
+
+    if (!username) errors.username = "Email is required.";
+    if (!password) errors.password = "Password is required";
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  }
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+debugger
+    if (!validateForm()) return;
+
+    loadLogin(user)
+      .then(() => {
+        history.push('/dashboard');
+      })
+      .catch(error => {
+        setErrors({ onSave: error.message });
+      });
   }
 
   return (
@@ -22,23 +49,37 @@ const Login = () => {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="username"
+            onChange={handleChange}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            onChange={handleChange}
           />
         </Form.Group>
-        <Button className="mt-3 btn-dechit" size="lg" type="submit" disabled={!validateForm()}>
+        <Button className="mt-3 btn-dechit" size="lg" type="submit" disabled={!validateForm}>
           Login
         </Button>
       </Form>
     </div>
   );
 }
-export default Login;
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+}
+
+const mapDispatchToProps = {
+  loadLogin
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
