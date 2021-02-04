@@ -6,7 +6,7 @@ import "../css/LoginPage.css";
 
 const LoginPage = () => {
     return (
-    <div className="container mt-4">
+    <div className="row mt-4">
         <div className="col-lg-6 col-12 float-start">
             <Login/>
         </div>

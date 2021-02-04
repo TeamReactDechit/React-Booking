@@ -29,7 +29,7 @@ const Login = ({loadLogin, history }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-debugger
+
     if (!validateForm()) return;
 
     loadLogin(user)

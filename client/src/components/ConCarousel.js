@@ -10,7 +10,6 @@ const ConCarousel = () => {
     };
   
     return (
-      <div className="container-fluid px-0">
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <img
@@ -35,7 +34,6 @@ const ConCarousel = () => {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-      </div>
     );
   }
   

@@ -12,9 +12,9 @@ import DashboardPage from "./pages/DashboardPage";
 
 function App() {
   return (
-    <div className="theme-default">
+    <>
     <Header />
-      <div>
+      <div className="container-fluid">
       <Switch>
         <Route key="homeP" exact path="/" component={HomePage} />
         <Route key="bookingP" exact path="/booking" component={BookingPage} />
@@ -24,7 +24,7 @@ function App() {
       </Switch>
       </div>
     <Footer />
-    </div>
+    </>
   );
 }
 

@@ -4,7 +4,6 @@ import "../css/seatSearch.css";
 import TimePicker from 'react-bootstrap-time-picker';
 
 const SeatSearch = () => (
-    <div className="container-fluid px-0">
         <div className = "search-wrapper">
             <Form>
                 <Row className="form-row pb-0">
@@ -31,7 +30,6 @@ const SeatSearch = () => (
                 </Button>
             </Form>
         </div>
-</div>
 );
 
 export default SeatSearch;
