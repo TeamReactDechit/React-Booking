@@ -10,10 +10,10 @@ function DashboardPage() {
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar/>
         <Switch>
-          <Route path='/userprofile' exact component={Userprofile} />
-          <Route path='/orders'  component={Orders} />
+          <Route path='/dashboard' exact component={Userprofile} />
+          <Route path='/orders' component={Orders} />
           <Route path='/changepassword'  component={ChangePassword} />
         </Switch>
       </Router>

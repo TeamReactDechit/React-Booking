@@ -15,9 +15,9 @@ const Header = () => {
      <header>
          <nav className="navbar navbar-light bg-light p-0">
             <div className="container-fluid header-colors">
-                <a className="navbar-brand">
+                <Link to="/" className="navbar-brand">
                     <img className="img-item" src={Logo} alt="logo"/>
-                </a>
+                </Link>
                 <span>
                     <FontAwesomeIcon className="me-2 fa-lg" icon={faUserCircle} />
                     <Link className="fw-bold header-colors" to="/login">LOGIN</Link>
