@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import BookingPage from "./pages/BookingPage";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Route key="bookingP" exact path="/booking" component={BookingPage} />
         <Route key="login" exact path="/login" component={LoginPage} />
         <Route key="dashboard" exact path="/dashboard" component={DashboardPage} />
+        <Route key="confirmation" exact path="/confirmation" component={Confirmation} />
+        <Route key="checkout" exact path="/checkout" component={CheckoutPage} />
         <Route component={PageNotFound} />
       </Switch>
       </div>
