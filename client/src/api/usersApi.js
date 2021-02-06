@@ -10,6 +10,6 @@ export function getAuthUser(user) {
     body: JSON.stringify(user)
   })
     .then(handleResponse)
-    .then(data => console.log(data))
+    //.then(data => console.log(data))
     .catch(handleError);
 }

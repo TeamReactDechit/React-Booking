@@ -80,7 +80,7 @@ db.serialize(() => {
         (err) => {
             if (err) {
                 // Table already created
-                console.log(err.message);
+                //console.log(err.message);
             }else{
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO users (name, email, password, birthdate, type, created_at, updated_at) VALUES (?,?,?,?,?,?,?)';
@@ -92,7 +92,7 @@ db.serialize(() => {
         (err) => {
             if (err) {
                 // Table already created
-                console.log(err.message);
+                //console.log(err.message);
             }else{
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO locations (name, created_at, updated_at) VALUES (?,?,?)';
@@ -104,7 +104,7 @@ db.serialize(() => {
         (err) => {
             if (err) {
                 // Table already created
-                console.log(err.message);
+                //console.log(err.message);
             }else{
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO seats (number, location_id, created_at, updated_at) VALUES (?,?,?,?)';
@@ -122,7 +122,7 @@ db.serialize(() => {
         (err) => {
             if (err) {
                 // Table already created
-                console.log(err.message);
+                //console.log(err.message);
             }else{
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO tokens (user_id, token, created_at, updated_at) VALUES (?,?,?,?)';
@@ -133,7 +133,7 @@ db.serialize(() => {
         (err) => {
             if (err) {
                 // Table already created
-                console.log(err.message);
+                //console.log(err.message);
             }else{
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO prenotations (user_id, location_id, seat_id, start, end, status, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
