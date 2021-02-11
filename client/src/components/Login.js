@@ -2,12 +2,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 
-const Login = ({handleChange, validateForm, handleSubmit }) => {
+const Login = ({handleChange, validateForm, handleSubmit, errors }) => {
   
 
   return (
     <div className="container">
       <h1>Login</h1>
+      {errors.error && <div className="alert alert-danger"><h2>ERRORE BRAVO IL FESSO!</h2><span>{errors.error}</span></div>}
       <Form className="col-md-8 col-12 login p-4" onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>

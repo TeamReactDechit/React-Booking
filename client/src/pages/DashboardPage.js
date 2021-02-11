@@ -11,12 +11,9 @@ const DashboardPage = ({user}) => {
   const [utente, setUtente] = useState({ ...user });
 
   useEffect(() => {
-
-    debugger;
     if (user.id !== null) {
       setUtente({ ...user });
     }
-
   }, [user]);
 
 

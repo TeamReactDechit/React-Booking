@@ -35,18 +35,17 @@ const LoginPage = ({ loadLogin, history }) => {
 
     loadLogin(utente)
       .then(() => {
-        debugger;
         history.push("/dashboard");
       })
       .catch((error) => {
-        setErrors({ onSave: error.message });
+        setErrors({ error: error.message });
       });
   }
 
   return (
     <div className="row mt-4">
       <div className="col-lg-6 col-12 float-start">
-        <Login handleChange={handleChange} validateForm={validateForm} handleSubmit={handleLoginSubmit}/>
+        <Login handleChange={handleChange} validateForm={validateForm} handleSubmit={handleLoginSubmit} errors={errors}/>
       </div>
       <div className="col-lg-6 col-12 float-end">
         <Registration />
