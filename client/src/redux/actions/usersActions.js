@@ -20,3 +20,22 @@ export function loadUtenteSuccess(user) {
           });
       };
     }
+
+    export function loadNewUtenteSuccess(user) {
+      return { type: types.CREATE_USER_SUCCESS, user };
+    }
+    
+    export function saveNewUser(user) {
+        return function(dispatch) {
+          dispatch(beginApiCall());
+          return usersApi
+            .saveUser(user)
+            .then(user => {
+              dispatch(loadNewUtenteSuccess(user));
+            })
+            .catch(error => {
+              dispatch(apiCallError(error));
+              throw error;
+            });
+        };
+      }

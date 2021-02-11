@@ -10,6 +10,17 @@ export function getAuthUser(user) {
     body: JSON.stringify(user)
   })
     .then(handleResponse)
-    //.then(data => console.log(data))
+    .catch(handleError);
+}
+
+export function saveUser(user) {
+  return fetch(initialState.baseurl + "/user",{
+    method: "POST",
+    headers: { 
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(user)
+  })
+    .then(handleResponse)
     .catch(handleError);
 }

@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 
-const Login = ({handleChange, validateForm, handleSubmit, errors }) => {
+const Login = ({handleChange, handleSubmit, errors }) => {
   
 
   return (
@@ -26,7 +26,7 @@ const Login = ({handleChange, validateForm, handleSubmit, errors }) => {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button className="mt-3 btn-dechit" size="lg" type="submit" disabled={!validateForm}>
+        <Button className="mt-3 btn-dechit" size="lg" type="submit">
           Login
         </Button>
       </Form>

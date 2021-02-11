@@ -3,20 +3,24 @@ import Login from "../components/Login";
 import Registration from "../components/Registration";
 import "../css/LoginPage.css";
 import { connect } from "react-redux";
-import { loadLogin } from "../redux/actions/usersActions";
+import { loadLogin, saveNewUser } from "../redux/actions/usersActions";
 
-const LoginPage = ({ loadLogin, history }) => {
+const LoginPage = ({ loadLogin, saveNewUser, history }) => {
   const [utente, setUtente] = useState();
-  const [errors, setErrors] = useState({});
+  const [errorsLogin, setErrorsLogin] = useState({});
+  const [errorsSignUp, setErrorsSignUp] = useState({});
 
-  function validateForm() {
+
+   /*LOGIN*/
+
+  function validateLoginForm() {
     const { username, password } = utente;
     const errors = {};
 
-    if (!username) errors.username = "Email is required.";
-    if (!password) errors.password = "Password is required";
+    if (!username) errors.error = "Email is required.";
+    if (!password) errors.error = "Password is required";
 
-    setErrors(errors);
+    setErrorsLogin(errors);
     return Object.keys(errors).length === 0;
   }
 
@@ -31,24 +35,57 @@ const LoginPage = ({ loadLogin, history }) => {
   function handleLoginSubmit(event) {
     event.preventDefault();
 
-    if (!validateForm()) return;
+    if (!validateLoginForm()) return;
 
     loadLogin(utente)
       .then(() => {
         history.push("/dashboard");
       })
       .catch((error) => {
-        setErrors({ error: error.message });
+        setErrorsLogin({ error: error.message });
+      });
+  }
+
+
+  /*REGISTRAZIONE*/
+
+  function validateSignUpForm() {
+    const { name, surname, date, email, password, confirmpassword } = utente;
+    const errors = {};
+
+    if (!name) errors.error = "Name is required.";
+    if (!surname) errors.error = "Surname is required";
+    if (!date) errors.error = "Date is required";
+    if (!email) errors.error = "Email is required";
+    if (!password) errors.error = "Password is required";
+    if (!confirmpassword) errors.error = "Confirm password is required";
+    if (confirmpassword !== password) errors.error = "Confirm password isn't equal to password";
+
+    setErrorsSignUp(errors);
+    return Object.keys(errors).length === 0;
+  }
+
+  function handleSignUpSubmit(event) {
+    event.preventDefault();
+
+    if (!validateSignUpForm()) return;
+debugger
+    saveNewUser(utente)
+      .then(() => {
+        history.push("/dashboard");
+      })
+      .catch((error) => {
+        setErrorsSignUp({ error: error.message });
       });
   }
 
   return (
     <div className="row mt-4">
       <div className="col-lg-6 col-12 float-start">
-        <Login handleChange={handleChange} validateForm={validateForm} handleSubmit={handleLoginSubmit} errors={errors}/>
+        <Login handleChange={handleChange} handleSubmit={handleLoginSubmit} errors={errorsLogin}/>
       </div>
       <div className="col-lg-6 col-12 float-end">
-        <Registration />
+      <Registration handleChange={handleChange} handleSubmit={handleSignUpSubmit} errors={errorsSignUp}/>
       </div>
     </div>
   );
@@ -56,12 +93,13 @@ const LoginPage = ({ loadLogin, history }) => {
 
 function mapStateToProps(state) {
   return {
-    utente: state.utente,
+    user: state.utente,
   };
 }
 
 const mapDispatchToProps = {
   loadLogin,
+  saveNewUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

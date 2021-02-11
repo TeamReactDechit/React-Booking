@@ -6,6 +6,9 @@ export default function utenteReducer(state = initialState.user, action) {
       case types.LOGIN_SUCCESS:
         localStorage.setItem("utente", JSON.stringify(action.user.data));
         return action.user.data;
+      case types.CREATE_USER_SUCCESS:
+        debugger;
+        return [...state, { ... action.user.data }];
       default:
         return state;
     }
