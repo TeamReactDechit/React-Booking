@@ -51,9 +51,6 @@ router.post("/user", (req, res, next) => {
   if (!req.body.email){
       errors.push("No email specified");
   }
-  if (!req.body.type){
-    errors.push("No user type specified");
-}
   if (errors.length){
       res.status(400).json({"error":errors.join(",")});
       return;
@@ -71,8 +68,8 @@ router.post("/user", (req, res, next) => {
       type: "USER",
       created_at: Date.now()
   }
-  let sql ='INSERT INTO users (name, email, password, birthdate, type, created_at) VALUES (?,?,?,?,?,?)';
-  let params =[data.name, data.email, data.password, data.birthdate, data.type, data.created_at];
+  let sql ='INSERT INTO users (name, surname, email, password, birthdate, type, created_at) VALUES (?,?,?,?,?,?,?)';
+  let params =[data.name, data.surname, data.email, data.password, data.birthdate, data.type, data.created_at];
   db.run(sql, params, function (err, result) {
       if (err){
           res.status(400).json({"error": err.message})

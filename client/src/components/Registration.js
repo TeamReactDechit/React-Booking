@@ -28,7 +28,7 @@ const Registration = ({handleChange, handleSubmit, errors }) => {
           <Form.Label>Birtdate</Form.Label>
           <Form.Control
             type="date"
-            name="date"
+            name="birthdate"
             onChange={handleChange}
           />
         </Form.Group>

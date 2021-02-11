@@ -50,12 +50,12 @@ const LoginPage = ({ loadLogin, saveNewUser, history }) => {
   /*REGISTRAZIONE*/
 
   function validateSignUpForm() {
-    const { name, surname, date, email, password, confirmpassword } = utente;
+    const { name, surname, birthdate, email, password, confirmpassword } = utente;
     const errors = {};
 
     if (!name) errors.error = "Name is required.";
     if (!surname) errors.error = "Surname is required";
-    if (!date) errors.error = "Date is required";
+    if (!birthdate) errors.error = "Date is required";
     if (!email) errors.error = "Email is required";
     if (!password) errors.error = "Password is required";
     if (!confirmpassword) errors.error = "Confirm password is required";
