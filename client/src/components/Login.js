@@ -5,11 +5,12 @@ import { loadLogin } from "../redux/actions/usersActions";
 import { connect } from "react-redux";
 
 const Login = ({loadLogin, history }) => {
-  const [user, setUser] = useState();
+  let user = JSON.parse(localStorage.getItem('utente'));
+  const [utente, setUtente] = useState();
   const [errors, setErrors] = useState({});
 
   function validateForm() {
-    const { username, password } = user;
+    const { username, password } = utente;
     const errors = {};
 
     if (!username) errors.username = "Email is required.";
@@ -21,8 +22,8 @@ const Login = ({loadLogin, history }) => {
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setUser({
-      ...user,
+    setUtente({
+      ...utente,
       [name]: value,
     });
   }
@@ -32,10 +33,7 @@ const Login = ({loadLogin, history }) => {
 
     if (!validateForm()) return;
 
-    loadLogin(user)
-      .then(() => {
-        history.push('/dashboard');
-      })
+    loadLogin(utente)
       .catch(error => {
         setErrors({ onSave: error.message });
       });
@@ -43,7 +41,7 @@ const Login = ({loadLogin, history }) => {
 
   return (
     <div className="container">
-      <h1>Login</h1>
+      <h1>Login</h1>{user.name}
       <Form className="col-md-8 col-12 login p-4" onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>

@@ -33,7 +33,7 @@ router.post("/login", (req, res, next) => {
         req.session.user = row;
         res.json({
           "message": "you are now logged with id="+req.session.userId,
-          "data": req.session.userId
+          "data": req.session.user
         })
         //res.redirect("/api/login");
       } else {
