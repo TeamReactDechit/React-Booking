@@ -5,6 +5,7 @@ const DBSOURCE = "db.sqlite";
 const createUsers = `CREATE TABLE users (
         id integer PRIMARY KEY AUTOINCREMENT,
         name text,
+        surname text,
         email text NOT NULL UNIQUE,
         password text NOT NULL,
         birthdate INTEGER,
@@ -83,9 +84,9 @@ db.serialize(() => {
                 //console.log(err.message);
             }else{
                 // Table just created, creating some rows
-                let insert = 'INSERT INTO users (name, email, password, birthdate, type, created_at, updated_at) VALUES (?,?,?,?,?,?,?)';
-                db.run(insert, ["admin","admin@example.com",md5("admin"),Date.UTC(1975, 1, 15),"ADMIN",Date.now(),null]);
-                db.run(insert, ["user","user@example.com",md5("user"),Date.UTC(1990, 11, 25),"USER",Date.now(),null]);
+                let insert = 'INSERT INTO users (name, surname, email, password, birthdate, type, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
+                db.run(insert, ["admin-name", "admin-surname","admin@example.com",md5("admin"),Date.UTC(1975, 1, 15),"ADMIN",Date.now(),null]);
+                db.run(insert, ["user-name", "user-surname","user@example.com",md5("user"),Date.UTC(1990, 11, 25),"USER",Date.now(),null]);
             }
     })
     .run(createLocations,

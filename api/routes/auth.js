@@ -35,7 +35,6 @@ router.post("/login", (req, res, next) => {
           "message": "you are now logged with id="+req.session.userId,
           "data": req.session.user
         })
-        //res.redirect("/api/login");
       } else {
         res.json({
           "error": "wrong credentials",
@@ -44,14 +43,5 @@ router.post("/login", (req, res, next) => {
       
   });
 })
-
-
-/* GET test. */
-router.get("/login", (req, res, next) => {
-      res.json({
-          "message":"success",
-          "data":req.session
-      })
-});
 
 module.exports = router;

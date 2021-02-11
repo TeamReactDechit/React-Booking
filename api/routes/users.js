@@ -58,14 +58,17 @@ router.post("/user", (req, res, next) => {
       res.status(400).json({"error":errors.join(",")});
       return;
   }
+
+  let birthdate = req.body.birthdate;
+  console.log(birthdate);
+
   let data = {
       name: req.body.name,
+      surname: req.body.surname,
       email: req.body.email,
       password : md5(req.body.password),
-      birthdate: Date.UTC(req.body.birthdate),
-      type: req.body.type.toUpperCase()=="ADMIN"
-            ?req.body.type.toUpperCase()
-            :"USER",
+      birthdate: null,
+      type: "USER",
       created_at: Date.now()
   }
   let sql ='INSERT INTO users (name, email, password, birthdate, type, created_at) VALUES (?,?,?,?,?,?)';
