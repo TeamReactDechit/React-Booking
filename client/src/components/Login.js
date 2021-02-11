@@ -1,47 +1,13 @@
-import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { loadLogin } from "../redux/actions/usersActions";
-import { connect } from "react-redux";
 
-const Login = ({loadLogin, history }) => {
-  let user = JSON.parse(localStorage.getItem('utente'));
-  const [utente, setUtente] = useState();
-  const [errors, setErrors] = useState({});
 
-  function validateForm() {
-    const { username, password } = utente;
-    const errors = {};
-
-    if (!username) errors.username = "Email is required.";
-    if (!password) errors.password = "Password is required";
-
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
-  }
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setUtente({
-      ...utente,
-      [name]: value,
-    });
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    if (!validateForm()) return;
-
-    loadLogin(utente)
-      .catch(error => {
-        setErrors({ onSave: error.message });
-      });
-  }
+const Login = ({handleChange, validateForm, handleSubmit }) => {
+  
 
   return (
     <div className="container">
-      <h1>Login</h1>{user.name}
+      <h1>Login</h1>
       <Form className="col-md-8 col-12 login p-4" onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -67,17 +33,4 @@ const Login = ({loadLogin, history }) => {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    user: state.user
-  };
-}
-
-const mapDispatchToProps = {
-  loadLogin
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default Login;
