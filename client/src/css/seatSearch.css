@@ -27,8 +27,8 @@
     padding-bottom: 10px;
 }
 
-.form-label {
-    color: white;
+.seat-label {
+    color: white!important;
     font-weight: 600;
 }
 

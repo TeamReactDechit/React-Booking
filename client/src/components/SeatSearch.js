@@ -8,10 +8,10 @@ const SeatSearch = () => (
             <Form>
                 <Row className="form-row pb-0">
                     <Col>
-                        <Form.Label className="form-label">Data</Form.Label>
+                        <Form.Label className="seat-label">Data</Form.Label>
                     </Col>
                     <Col>
-                        <Form.Label className= "form-label">Slot orario</Form.Label>
+                        <Form.Label className= "seat-label">Slot orario</Form.Label>
                     </Col>
                 </Row>
                 <Row className="form-row">
