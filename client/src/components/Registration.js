@@ -56,7 +56,7 @@ const Registration = ({handleChange, handleSubmit, errors }) => {
             onChange={handleChange}
           />
         </Form.Group>
-        {errors.error && <div className="alert alert-danger"><h2>RICORDATI CHE MORIRAI!</h2><span>{errors.error}</span></div>}
+        {errors.error && <div className="alert alert-danger mt-2 mb-2 p-2"><p class="m-1">{errors.error}</p></div>}
         
         <Button className="btn-dechit mt-3" size="lg" type="submit">
           Submit

@@ -8,7 +8,6 @@ const Login = ({handleChange, handleSubmit, errors }) => {
   return (
     <div className="container">
       <h1>Login</h1>
-      {errors.error && <div className="alert alert-danger"><h2>ERRORE BRAVO IL FESSO!</h2><span>{errors.error}</span></div>}
       <Form className="col-md-8 col-12 login p-4" onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -29,6 +28,7 @@ const Login = ({handleChange, handleSubmit, errors }) => {
         <Button className="mt-3 btn-dechit" size="lg" type="submit">
           Login
         </Button>
+        {errors.error && <div className="alert alert-danger mt-2 mb-2 p-2"><p class="m-1">{errors.error}</p></div>}
       </Form>
     </div>
   );
