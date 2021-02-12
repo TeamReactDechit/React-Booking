@@ -6,13 +6,24 @@ const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const session = require('express-session');
+const app = express();
 
+// models
+var models = require("./models");
+
+// routes management
 const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 
-const app = express();
+//Sync Database
+models.sequelize.sync().then(function() {
+  console.log('connected to database')
+}).catch(function(err) {
+  console.log(err)
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

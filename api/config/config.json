@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "example",
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "storage": "./db.sqlite"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "example",
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "storage": "./db.sqlite"
+  },
+  "production": {
+    "use_env_variable" : "ENVaRIaBLE",
+    "username": "root",
+    "password": null,
+    "database": "example",
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "storage": "./db.sqlite"
+  }
+}

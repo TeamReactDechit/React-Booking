@@ -35,8 +35,6 @@ const LoginPage = ({ loadLogin, saveNewUser, history }) => {
   function handleLoginSubmit(event) {
     event.preventDefault();
 
-    if (!validateLoginForm()) return;
-
     loadLogin(utente)
       .then(() => {
         history.push("/dashboard");

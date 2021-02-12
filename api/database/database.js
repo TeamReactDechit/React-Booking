@@ -73,9 +73,9 @@ db.serialize(() => {
                 //console.log(err.message);
             }else{
                 // Table just created, creating some rows
-                let insert = 'INSERT INTO users (name, surname, email, password, birthdate, type, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
-                db.run(insert, ["admin-name", "admin-surname","admin@example.com",md5("admin"),Date.UTC(1975, 1, 15),"ADMIN",Date.now(),null]);
-                db.run(insert, ["user-name", "user-surname","user@example.com",md5("user"),Date.UTC(1990, 11, 25),"USER",Date.now(),null]);
+                let insert = 'INSERT INTO users (name, surname, email, password, birthdate, type,) VALUES (?,?,?,?,?,?)';
+                db.run(insert, ["admin-name", "admin-surname","admin@example.com",md5("admin"),Date.UTC(1975, 1, 15),"ADMIN"]);
+                db.run(insert, ["user-name", "user-surname","user@example.com",md5("user"),Date.UTC(1990, 11, 25),"USER"]);
             }
     })
     .run(createLocations,
@@ -88,6 +88,10 @@ db.serialize(() => {
                 let insert = 'INSERT INTO locations (name, created_at, updated_at) VALUES (?,?,?)';
                 db.run(insert, ["room1",Date.now(),null]);
                 db.run(insert, ["room2",Date.now(),null]);
+                db.run(insert, ["room3",Date.now(),null]);
+                db.run(insert, ["room4",Date.now(),null]);
+                db.run(insert, ["room5",Date.now(),null]);
+                db.run(insert, ["room6",Date.now(),null]);
             }
         })
     .run(createSeats,
@@ -99,13 +103,56 @@ db.serialize(() => {
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO seats (number, location_id, created_at, updated_at) VALUES (?,?,?,?)';
                 db.run(insert, [1,1,Date.now(),null]);
-                db.run(insert, [2,1,Date.now(),null]);
-                db.run(insert, [3,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                db.run(insert, [1,1,Date.now(),null]);
+                //room2
                 db.run(insert, [1,2,Date.now(),null]);
-                db.run(insert, [2,2,Date.now(),null]);
-                db.run(insert, [3,2,Date.now(),null]);
-                db.run(insert, [4,2,Date.now(),null]);
-                db.run(insert, [5,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                db.run(insert, [1,2,Date.now(),null]);
+                //room3
+                db.run(insert, [1,3,Date.now(),null]);
+                db.run(insert, [1,3,Date.now(),null]);
+                db.run(insert, [1,3,Date.now(),null]);
+                db.run(insert, [1,3,Date.now(),null]);
+                //room4
+                db.run(insert, [1,4,Date.now(),null]);
+                db.run(insert, [1,4,Date.now(),null]);
+                db.run(insert, [1,4,Date.now(),null]);
+                db.run(insert, [1,4,Date.now(),null]);
+                //room5
+                db.run(insert, [1,5,Date.now(),null]);
+                db.run(insert, [1,5,Date.now(),null]);
+                db.run(insert, [1,5,Date.now(),null]);
+                db.run(insert, [1,5,Date.now(),null]);
+                db.run(insert, [1,5,Date.now(),null]);
+                db.run(insert, [1,5,Date.now(),null]);
+                //room6
+                db.run(insert, [1,4,Date.now(),null]);
+                db.run(insert, [1,4,Date.now(),null]);
+                db.run(insert, [1,4,Date.now(),null]);
+                db.run(insert, [1,4,Date.now(),null]);
             }
         })
     .run(createPrenotations,
@@ -116,7 +163,14 @@ db.serialize(() => {
             }else{
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO prenotations (user_id, location_id, seat_id, start, end, status, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
-                db.run(insert, [1,1,1,Date.UTC(2021, 2, 1, 9),Date.UTC(2021, 2, 1, 13),"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,1,1,Date.UTC(2021, 2, 1, 9, 10, 0, 0),Date.UTC(2021, 2, 1, 9, 11, 0, 0),"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,1,1,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,1,4,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,1,5,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
+                
+                db.run(insert, [0,2,1,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,2,1,Date.UTC(2021, 2, 1, 9, 15, 0, 0),Date.UTC(2021, 2, 1, 9, 16, 0, 0),"ACTIVE",Date.now(),null]);
+
             }
         })
 });
