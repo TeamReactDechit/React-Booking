@@ -30,17 +30,6 @@ const createSeats = `CREATE TABLE seats (
                 ON DELETE NO ACTION
                 ON UPDATE NO ACTION
 )`;
-const createTokens = `CREATE TABLE tokens (
-    id integer PRIMARY KEY AUTOINCREMENT,
-    user_id integer NOT NULL,
-    token text NOT NULL,
-    created_at integer NOT NULL,
-    updated_at integer,
-    FOREIGN KEY (user_id)
-        REFERENCES users (id)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
-)`;
 const createPrenotations = `CREATE TABLE prenotations (
     id integer PRIMARY KEY AUTOINCREMENT,
     user_id integer NOT NULL,
@@ -117,17 +106,6 @@ db.serialize(() => {
                 db.run(insert, [3,2,Date.now(),null]);
                 db.run(insert, [4,2,Date.now(),null]);
                 db.run(insert, [5,2,Date.now(),null]);
-            }
-        })
-    .run(createTokens,
-        (err) => {
-            if (err) {
-                // Table already created
-                //console.log(err.message);
-            }else{
-                // Table just created, creating some rows
-                let insert = 'INSERT INTO tokens (user_id, token, created_at, updated_at) VALUES (?,?,?,?)';
-                db.run(insert, [1,"testtoken",Date.now(),null]);
             }
         })
     .run(createPrenotations,

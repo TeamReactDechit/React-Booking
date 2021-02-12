@@ -4,6 +4,12 @@ const router = express.Router();
 const db = require("../database/database.js");
 const md5 = require("md5");
 
+function getBirthdate(birthdate){
+    let dateParts = birthdate.split("-");
+    let dateNumber = Date.UTC(dateParts[0], dateParts[1]-1, dateParts[2]);
+    return dateNumber;
+}
+
 /* GET users listing. */
 router.get("/users", (req, res, next) => {
   let sql = "select * from users";
@@ -55,16 +61,12 @@ router.post("/user", (req, res, next) => {
       res.status(400).json({"error":errors.join(",")});
       return;
   }
-
-  let birthdate = req.body.birthdate;
-  console.log(birthdate);
-
   let data = {
       name: req.body.name,
       surname: req.body.surname,
       email: req.body.email,
       password : md5(req.body.password),
-      birthdate: null,
+      birthdate: getBirthdate(req.body.birthdate),
       type: "USER",
       created_at: Date.now()
   }
