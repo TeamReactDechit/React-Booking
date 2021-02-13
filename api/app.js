@@ -12,6 +12,7 @@ const app = express();
 var models = require("./models");
 
 // routes management
+const prenotationsRouter = require('./routes/prenotations');
 const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const usersRouter = require('./routes/users');
@@ -48,6 +49,7 @@ app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/api', usersRouter);
 app.use('/api', authRouter);
+app.use('/api', prenotationsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

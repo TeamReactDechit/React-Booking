@@ -5,7 +5,10 @@
     "database": "example",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "./db.sqlite"
+    "storage": "./db.sqlite",
+    "dialectOptions": {
+      "useUTC": true
+    }
   },
   "test": {
     "username": "root",

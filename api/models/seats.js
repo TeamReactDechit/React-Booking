@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
     const seats = sequelize.define('Seats', {
         id: {
@@ -26,11 +25,12 @@ module.exports = (sequelize, DataTypes) => {
         
     }, 
     {
-        tableName: 'seats'
+        tableName: 'seats',
+        underscored: true
     });
     seats.associate = function (models) {
-        seats.belongsTo(models.Locations);
-        seats.hasMany(models.Prenotations);
+        seats.belongsTo(models.Locations,{foreignKey: 'location_id'});
+        seats.hasMany(models.Prenotations,{foreignKey: 'seat_id'});
     };
     return seats;
 };

@@ -40,6 +40,7 @@ const createPrenotations = `CREATE TABLE prenotations (
     status text NOT NULL,
     created_at integer NOT NULL,
     updated_at integer,
+    time integer,
     FOREIGN KEY (user_id)
         REFERENCES users (id)
             ON DELETE NO ACTION
@@ -73,9 +74,9 @@ db.serialize(() => {
                 //console.log(err.message);
             }else{
                 // Table just created, creating some rows
-                let insert = 'INSERT INTO users (name, surname, email, password, birthdate, type,) VALUES (?,?,?,?,?,?)';
-                db.run(insert, ["admin-name", "admin-surname","admin@example.com",md5("admin"),Date.UTC(1975, 1, 15),"ADMIN"]);
-                db.run(insert, ["user-name", "user-surname","user@example.com",md5("user"),Date.UTC(1990, 11, 25),"USER"]);
+                let insert = 'INSERT INTO users (name, surname, email, password, birthdate, type, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
+                db.run(insert, ["admin-name", "admin-surname","admin@example.com",md5("admin"),Date.UTC(1975, 1, 15),"ADMIN",Date.now(),null]);
+                db.run(insert, ["user-name", "user-surname","user@example.com",md5("user"),Date.UTC(1990, 11, 25),"USER",Date.now(),null]);
             }
     })
     .run(createLocations,
@@ -162,14 +163,14 @@ db.serialize(() => {
                 //console.log(err.message);
             }else{
                 // Table just created, creating some rows
-                let insert = 'INSERT INTO prenotations (user_id, location_id, seat_id, start, end, status, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
-                db.run(insert, [0,1,1,Date.UTC(2021, 2, 1, 9, 10, 0, 0),Date.UTC(2021, 2, 1, 9, 11, 0, 0),"ACTIVE",Date.now(),null]);
-                db.run(insert, [0,1,1,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
-                db.run(insert, [0,1,4,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
-                db.run(insert, [0,1,5,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
+                let insert = 'INSERT INTO prenotations (user_id, location_id, seat_id, start, end, status, created_at, updated_at, time) VALUES (?,?,?,?,?,?,?,?,?)';
+                db.run(insert, [0,1,1,Date.UTC(2021, 4, 1, 0,0,0,0),Date.UTC(2021, 2, 1, 0,0,0,0),"ACTIVE",Date.now(),null,Date.UTC(0,0,0,10,0,0)]);
+                db.run(insert, [0,1,1,Date.UTC(2021, 4, 1, 0,0,0,0),Date.UTC(2021, 2, 1, 0,0,0,0),"ACTIVE",Date.now(),null,Date.UTC(0,0,0,10,0,0)]);
+                db.run(insert, [0,1,4,Date.UTC(2021, 4, 1, 0,0,0,0),Date.UTC(2021, 2, 1, 0,0,0,0),"ACTIVE",Date.now(),null,Date.UTC(0,0,0,10,0,0)]);
+                db.run(insert, [0,1,5,Date.UTC(2021, 4, 1, 0,0,0,0),Date.UTC(2021, 2, 1, 0,0,0,0),"ACTIVE",Date.now(),null,Date.UTC(0,0,0,11,0,0)]);
                 
-                db.run(insert, [0,2,1,Date.UTC(2021, 2, 1, 9, 11, 0, 0),Date.UTC(2021, 2, 1, 9, 12, 0, 0),"ACTIVE",Date.now(),null]);
-                db.run(insert, [0,2,1,Date.UTC(2021, 2, 1, 9, 15, 0, 0),Date.UTC(2021, 2, 1, 9, 16, 0, 0),"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,2,1,Date.UTC(2021, 4, 1, 0,0,0,0),Date.UTC(2021, 2, 1, 0,0,0,0),"ACTIVE",Date.now(),null,Date.UTC(0,0,0,15,0,0)]);
+                db.run(insert, [0,2,1,Date.UTC(2021, 4, 1, 0,0,0,0),Date.UTC(2021, 2, 1, 0,0,0,0),"ACTIVE",Date.now(),null,Date.UTC(0,0,0,10,0,0)]);
 
             }
         })

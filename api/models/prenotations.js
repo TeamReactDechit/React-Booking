@@ -1,53 +1,57 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, Sequelize) => {
     const prenotations = sequelize.define('Prenotations', {
         id: {
             allowNull: false,
             primaryKey: true,
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             autoIncrement: true
         },
         user_id :{
             allowNull: true,
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
         },
         location_id :{
             allowNull: true,
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
         },
         seat_id :{
             allowNull: true,
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
         },
         start : {
             allowNull: false,
-            type: DataTypes.DATE,
+            type: Sequelize.DATE,
         },
         end : {
             allowNull: false,
-            type: DataTypes.DATE,
+            type: Sequelize.DATE,
         },
         status : {
             allowNull: false,
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
         },
         created_at : {
             allowNull: false,
-            type: DataTypes.DATE,
+            type: Sequelize.DATE,
         },
         updated_at : {
             allowNull: true,
-            type: DataTypes.DATE,
+            type: Sequelize.DATE,
+        },
+        time:{
+            allowNull: false,
+            type: Sequelize.DATE,
         }
         
     }, 
     {
-        tableName: 'prenotations'
+        tableName: 'prenotations',
+        underscored: true
     });
     prenotations.associate = function (models) {
-        prenotations.belongsTo(models.Users);
-        prenotations.belongsTo(models.Locations);
-        prenotations.belongsTo(models.Seats);
+        prenotations.belongsTo(models.Users,{foreignKey: 'user_id'});
+        prenotations.belongsTo(models.Locations,{foreignKey: 'location_id'});
+        prenotations.belongsTo(models.Seats,{foreignKey: 'seat_id'});
     };
     return prenotations;
 };

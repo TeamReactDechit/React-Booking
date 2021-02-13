@@ -67,7 +67,7 @@ const LoginPage = ({ loadLogin, saveNewUser, history }) => {
     event.preventDefault();
 
     if (!validateSignUpForm()) return;
-debugger
+
     saveNewUser(utente)
       .then(() => {
         history.push("/dashboard");

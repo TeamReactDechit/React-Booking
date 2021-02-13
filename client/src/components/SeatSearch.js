@@ -3,7 +3,9 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import "../css/seatSearch.css";
 import TimePicker from "react-bootstrap-time-picker";
 
-const SeatSearch = ({handleChange, handleSubmit}) => (
+const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
+
+  return (
   <div className="search-wrapper">
     <Form onSubmit={handleSubmit}>
       <Row className="form-row pb-0">
@@ -16,7 +18,7 @@ const SeatSearch = ({handleChange, handleSubmit}) => (
           <Form.Control
             type="date"
             className="search-date"
-            name="data"
+            name="date"
             placeholder=""
             onChange={handleChange}
           />
@@ -27,13 +29,15 @@ const SeatSearch = ({handleChange, handleSubmit}) => (
           <Button className="btn cancel-btn" type="reset">
             Cancel
           </Button>
-          <Button className="btn submit-btn" type="submit">
+          
+          {validateForm&&<Button className="btn submit-btn" type="submit">
             Submit
-          </Button>
+          </Button>}
         </Col>
       </Row>
     </Form>
   </div>
-);
+  )
+  }
 
 export default SeatSearch;

@@ -1,5 +1,3 @@
-'use strict';
-//const bc = require('bcrypt');
 module.exports = (sequelize, DataTypes) => {
     const users = sequelize.define('Users', {
         id: {
@@ -78,10 +76,11 @@ module.exports = (sequelize, DataTypes) => {
           users.password = bc.hashSync(users.password, 12)
         }
       },*/
-        tableName: 'users'
+        tableName: 'users',
+        underscored: true
     });
     users.associate = function (models) {
-        users.hasMany(models.Prenotations);
+        users.hasMany(models.Prenotations,{foreignKey: 'user_id'});
     };
     return users;
 };
