@@ -1,12 +1,5 @@
 import React from 'react';
-
-function formatDate(date){
-  const standardDate = new Date(0);
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
-  standardDate.setUTCMilliseconds(date);
-  return standardDate.toLocaleDateString("it-IT", options);
-}
+import {formatDate} from '../utility/helpers';
 
 const Userprofile = ({utente}) => {
   return(

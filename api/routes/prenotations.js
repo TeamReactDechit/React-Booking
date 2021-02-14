@@ -2,16 +2,15 @@ const express = require('express');
 const router = express.Router();
 const Op = require('../models').Sequelize.Op;
 const Prenotations = require('../models').Prenotations;
+const {getDate} = require('../helpers/helpers');
 
 router.post('/all/prenotations', async (req, res) => {
-    console.log("/all/prenotations");
+    console.log("----Cerca tutte le prenotazioni----");
     const params = req.body.date;
     const datePrenotations = getDate(params);
-    console.log(datePrenotations);
-        try{
+
+    try{
             const result = await findDatePrenotations({date:datePrenotations});
-    console.log("result")
-    console.log(result)
             res.json(result);
         } catch (e) {
             res.status(500).send(e.toString());
@@ -19,20 +18,7 @@ router.post('/all/prenotations', async (req, res) => {
     
     });
 
-
-    function getDate(date){
-        let dateParts = date.split("-");
-        let dateNumber = Date.UTC(dateParts[0], dateParts[1]-1, dateParts[2],0,0,0,0);
-        console.log("dateParts");
-        console.log(dateParts);
-        return dateNumber;
-    }
-
     async function findDatePrenotations(pars = {}) {
-        const where = {};
-        console.log("getPrenotations");
-        console.log(pars.date);
-       
          return Prenotations.findAll({
             where:{
                 start: pars.date

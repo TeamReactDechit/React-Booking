@@ -16,16 +16,17 @@ module.exports = (sequelize, DataTypes) => {
         },
         created_at : {
             allowNull: true,
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
         },
         updated_at : {
             allowNull: true,
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
         }
         
     }, 
     {
         tableName: 'seats',
+        timestamps: false,
         underscored: true
     });
     seats.associate = function (models) {

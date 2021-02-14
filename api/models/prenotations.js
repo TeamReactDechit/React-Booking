@@ -20,11 +20,11 @@ module.exports = (sequelize, Sequelize) => {
         },
         start : {
             allowNull: false,
-            type: Sequelize.DATE,
+            type: Sequelize.INTEGER,
         },
         end : {
             allowNull: false,
-            type: Sequelize.DATE,
+            type: Sequelize.INTEGER,
         },
         status : {
             allowNull: false,
@@ -32,20 +32,21 @@ module.exports = (sequelize, Sequelize) => {
         },
         created_at : {
             allowNull: false,
-            type: Sequelize.DATE,
+            type: Sequelize.INTEGER,
         },
         updated_at : {
             allowNull: true,
-            type: Sequelize.DATE,
+            type: Sequelize.INTEGER,
         },
         time:{
             allowNull: false,
-            type: Sequelize.DATE,
+            type: Sequelize.INTEGER,
         }
         
     }, 
     {
         tableName: 'prenotations',
+        timestamps: false,
         underscored: true
     });
     prenotations.associate = function (models) {

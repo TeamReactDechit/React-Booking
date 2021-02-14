@@ -12,16 +12,17 @@ module.exports = (sequelize, DataTypes) => {
         },
         created_at : {
             allowNull: false,
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
         },
         updated_at : {
             allowNull: true,
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
         }
         
     }, 
     {
         tableName: 'locations',
+        timestamps: false,
         underscored: true
     });
     locations.associate = function (models) {
