@@ -5,10 +5,10 @@ import MapSVG from "../map/MapSVG";
 const BookingPage = () =>{
     return (
         <>
-        <div className="col">
+        <div className="col-6">
             <MapSVG/>
         </div>
-        <div className="col">
+        <div className="col-6">
         </div>
         </>
       );
