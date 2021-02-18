@@ -65,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             type: DataTypes.DATE,
         },
-        type:{
+        role:{
             allowNull: false,
             type: DataTypes.STRING,
         }

@@ -18,11 +18,11 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true,
             type: Sequelize.INTEGER,
         },
-        start : {
+        date : {
             allowNull: false,
             type: Sequelize.INTEGER,
         },
-        end : {
+        hour : {
             allowNull: false,
             type: Sequelize.INTEGER,
         },
@@ -36,10 +36,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         updated_at : {
             allowNull: true,
-            type: Sequelize.INTEGER,
-        },
-        time:{
-            allowNull: false,
             type: Sequelize.INTEGER,
         }
         
