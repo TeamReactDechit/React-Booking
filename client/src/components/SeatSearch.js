@@ -7,12 +7,12 @@ const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
   return (
   <div className="search-wrapper">
     <Form onSubmit={handleSubmit}>
-      <Row className="form-row pb-0">
+      <Row className="form-row pb-0 justify-content-center">
         <Col md="3">
           <Form.Label className="seat-label">Data</Form.Label>
         </Col>
       </Row>
-      <Row className="form-row">
+      <Row className="form-row justify-content-center">
         <Col md="3">
           <Form.Control
             type="date"
@@ -23,7 +23,7 @@ const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
           />
         </Col>
       </Row>
-      <Row className="form-row">
+      <Row className="form-row justify-content-center">
         <Col md="3">
           <Button className="btn cancel-btn" type="reset">
             Cancel

@@ -29,6 +29,7 @@
     width: 100%;
     text-align: center;
     padding: 10px;
+    border: none!important;
 }
 
 .details-row span {

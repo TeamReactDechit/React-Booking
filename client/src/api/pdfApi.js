@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 router.post('/create-pdf', (req, res) => {
-    pdf.create(pdfTemplate(req.body), {}).toFile('rezultati.pdf', (err) => {
+    pdf.create(pdfTemplate(req.body), {}).toFile('pdf_receipt.pdf', (err) => {
       if(err) {
           return console.log('error');
       }
@@ -22,5 +22,5 @@ router.post('/create-pdf', (req, res) => {
 })
 
 router.get('/fetch-pdf', (req, res) => {
-    res.sendFile(`${__dirname}/rezultati.pdf`);
+    res.sendFile(`${__dirname}/pdf_receipt.pdf`);
 });
