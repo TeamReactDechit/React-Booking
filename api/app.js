@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const pdfAPIRouter = require('./routes/pdfAPI');
 
 //Sync Database
 models.sequelize.sync().then(function() {
@@ -50,6 +51,7 @@ app.use('/testAPI', testAPIRouter);
 app.use('/api', usersRouter);
 app.use('/api', authRouter);
 app.use('/api', prenotationsRouter);
+app.use('/api', pdfAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

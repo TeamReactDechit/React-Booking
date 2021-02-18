@@ -1,9 +1,26 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import "../css/confirmation.css";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
+import { saveAs } from 'file-saver';
+import axios from 'axios';
 
 const Confirmation = () => {
+    this.state = {
+    name: 'Adrian',
+    receiptId: 0,
+    price1: 0,
+    price2: 0,
+}
+
+this.createAndDownloadPdf = () => {
+axios.post('/create-pdf', this.state)
+.then(() => axios.get('/fetch-pdf', { responseType: 'blob' }))
+.then((res) => {
+const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+saveAs(pdfBlob, 'generatedDocument.pdf')
+})
+}
+
     return (
         <>
         <div className = "container confirmation">
@@ -34,9 +51,9 @@ const Confirmation = () => {
                         </Row>
                         <Row className ="pdf-row">
                             <Col className ="px-0">
-                                <Link to="/" className="link-btn pdf-btn">
+                                <Button onClick={this.createAndDownloadPdf} className="link-btn pdf-btn">
                                     SCARICA LA TUA PRENOTAZIONE
-                                </Link>
+                                </Button>
                             </Col>
                         </Row>
                     </div>
