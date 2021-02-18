@@ -214,6 +214,7 @@ const MapSVG = () => {
               ],
             ]}
           />
+          
           <ellipse
             cx="1153.5"
             cy="546"
@@ -562,6 +563,15 @@ const MapSVG = () => {
               ],
             ]}
           />
+
+          <ellipse
+            cx="873"
+            cy="132.5"
+            className="tavolo"
+            pointerEvents="all"
+            rx="260"
+            ry="50"
+          ></ellipse>
         </Oggetto>
         <Oggetto
           nome="muro"
@@ -1154,6 +1164,10 @@ const MapSVG = () => {
             "M493.5 607.5c0 44.2-35.8 80-80 80v-80",
           ]}
           attributi={[
+            [
+              { name: "className", value: "porta" },
+              { name: "pointerEvents", value: "all" },
+            ],
             [
               { name: "className", value: "porta" },
               { name: "pointerEvents", value: "all" },

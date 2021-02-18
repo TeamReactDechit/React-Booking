@@ -1,18 +1,49 @@
-.pavimento{fill:#FFFFFF;}
-	.divano{fill:#C5C4B0;stroke:#99976B;}
-	.muro{fill:#000000;stroke:#000000;}
-	.libreria{fill:#FFDC8C;stroke:#DDAB38;}
-	.libri{fill:none;stroke:#DDAB38;stroke-miterlimit:10;}
-	.pianta{fill:#A5C882;}
-	.sedia{fill:#CCAC93;stroke:#AB907B;stroke-miterlimit:10;}
-	.tavolo{fill:#CCAC93;stroke:#AB907B;}
-	.porta{fill:#FFFFFF;stroke:#000000;}
-	.divano-singolo{fill:#C5C4B0;stroke:#AB907B;}
+.pavimento {
+  fill: #ffffff;
+}
+.divano {
+  fill: #c5c4b0;
+  stroke: #99976b;
+}
+.muro {
+  fill: #000000;
+  stroke: #000000;
+}
+.libreria {
+  fill: #ffdc8c;
+  stroke: #ddab38;
+}
+.libri {
+  fill: none;
+  stroke: #ddab38;
+  stroke-miterlimit: 10;
+}
+.pianta {
+  fill: #a5c882;
+}
+.sedia {
+  fill: #ccac93;
+  stroke: #ab907b;
+  stroke-miterlimit: 10;
+}
+.tavolo {
+  fill: #ccac93;
+  stroke: #ab907b;
+}
+.porta {
+  fill: #ffffff;
+  stroke: #000000;
+}
+.divano-singolo {
+  fill: #c5c4b0;
+  stroke: #ab907b;
+}
 
-	.stanza:hover .pavimento{
-		fill:#ececec;
-	}
-	.stanza:hover .muro{
-		fill:#da6c06;
-		stroke:#da6c06;
-	}
+.stanza:hover .pavimento {
+  fill: #ececec;
+}
+
+.stanza:hover .muro {
+  fill: #da6c06;
+  stroke: #da6c06;
+}

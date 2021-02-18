@@ -1,9 +1,9 @@
 import Elemento from "./elemento";
 
-const Oggetto = ({ nome, stile, coordinate, attributi }) => {
+const Oggetto = ({ nome, stile, coordinate, attributi , ...props}) => {
   return (
     <g id={nome} className={stile}>
-      <Elemento coordinate={coordinate} attributi={attributi} />
+      {coordinate&&<Elemento coordinate={coordinate} attributi={attributi} />}
       {props.children}
     </g>
   );

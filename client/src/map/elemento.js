@@ -1,6 +1,5 @@
 const Elemento = ({ coordinate, attributi }) => {
-  debugger;
-  return coordinate.map((cord, index) => (
+  return coordinate?.map((cord, index) => (
     <path
     key={index}
       d={cord}

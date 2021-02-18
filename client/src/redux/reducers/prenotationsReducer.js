@@ -5,7 +5,7 @@ export default function prenotationsReducer(state = initialState.prenotations, a
     switch (action.type) {
       case types.SET_PRENOTATIONS_SUCCESS:
           debugger
-        return action.prenotations.data;
+        return action.prenotations;
       default:
         return state;
     }
