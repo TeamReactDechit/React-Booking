@@ -28,7 +28,7 @@ const Login = ({handleChange, handleSubmit, errors }) => {
         <Button className="mt-3 btn-dechit" size="lg" type="submit">
           Login
         </Button>
-        {errors.error && <div className="alert alert-danger mt-2 mb-2 p-2"><p class="m-1">{errors.error}</p></div>}
+        {errors.error && <div className="alert alert-danger mt-2 mb-2 p-2"><p className="m-1">{errors.error}</p></div>}
       </Form>
     </div>
   );

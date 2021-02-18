@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ConCarousel from "../components/ConCarousel";
 import SeatSearch from "../components/SeatSearch";
 import { connect } from "react-redux";
@@ -6,7 +6,7 @@ import { findAllPrenotations } from "../redux/actions/prenotationsActions";
 
 const HomePage = ({findAllPrenotations, history}) => {
   const [startDate, setStartDate] = useState();
-  const [errors, setErrors] = useState({});
+  const [, setErrors] = useState({});
 
   function handleChange(event) {
     const { name, value } = event.target;

@@ -8,7 +8,7 @@ export default function usersReducer(state = initialState.user, action) {
         return action.user.data;
       case types.CREATE_USER_SUCCESS:
         debugger;
-        return [...state, { ... action.user.data }];
+        return [...state,{...action.user.data}];
       default:
         return state;
     }

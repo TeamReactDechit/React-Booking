@@ -8,7 +8,8 @@ const ChangePassword = () => {
   }
 
   function handleChange(event) {
-    const { name, value } = event.target;
+    //const { name, value } = event.target;
+    console.log("changed!")
   }
 
   function validateForm() {

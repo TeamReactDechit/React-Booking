@@ -13,16 +13,16 @@ const LoginPage = ({ loadLogin, saveNewUser, history }) => {
 
    /*LOGIN*/
 
-  function validateLoginForm() {
-    const { username, password } = utente;
-    const errors = {};
+  // function validateLoginForm() {
+  //   const { username, password } = utente;
+  //   const errors = {};
 
-    if (!username) errors.error = "Email is required.";
-    if (!password) errors.error = "Password is required";
+  //   if (!username) errors.error = "Email is required.";
+  //   if (!password) errors.error = "Password is required";
 
-    setErrorsLogin(errors);
-    return Object.keys(errors).length === 0;
-  }
+  //   setErrorsLogin(errors);
+  //   return Object.keys(errors).length === 0;
+  // }
 
   function handleChange(event) {
     const { name, value } = event.target;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Cart from "../components/Cart";
 import MapSVG from "../map/MapSVG";
 import { connect } from "react-redux";

@@ -1,9 +1,9 @@
 import "./map.css";
-import elementMaps from "./elementMap.json";
+// import elementMaps from "./elementMap.json";
 import Oggetto from "./oggetto";
 
 const MapSVG = () => {
-  let maps = elementMaps;
+  // let maps = elementMaps;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

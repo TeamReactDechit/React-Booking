@@ -3,11 +3,7 @@ import Logo from "../images/Logo.svg"
 import "../css/Header.css"
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    BrowserRouter as Router,
-    Link,
-    Route
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 

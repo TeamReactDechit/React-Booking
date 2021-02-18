@@ -14,20 +14,20 @@ const Checkout = () => {
                         <h2>Riepilogo prenotazione</h2>
                         <Row className ="details-row m-0">
                             <Col>
-                                <p class="product-row">
+                                <p className="product-row">
                                     <span>Data:</span>
                                 </p>
-                                <p class="product-row timeslot">
+                                <p className="product-row timeslot">
                                     <span>Ora:</span>
                                 </p>
                             </Col>
                         </Row>
                         <Row className ="details-row m-0">
                             <Col>
-                                <p class="product-row">
+                                <p className="product-row">
                                     <span>Tiziano ferrino</span>
                                 </p>
-                                <p class="product-row">
+                                <p className="product-row">
                                     <span>tiziano.ferrino@gmail.com</span>
                                 </p>
                             </Col>

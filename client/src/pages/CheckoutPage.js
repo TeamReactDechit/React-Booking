@@ -22,10 +22,10 @@ const CheckoutPage = () => {
 
   return (
     <>
-    <div class="container checkout">
+    <div className="container checkout">
       <h1>Riepilogo prenotazione</h1>
       <Form onSubmit={handleSubmit} className="row">
-        <Col class="col-7">
+        <Col className="col-7">
             <div className="login p-4">
             <Form.Group size="lg" controlId="name">
                 <Form.Label>Name</Form.Label>
@@ -84,48 +84,48 @@ const CheckoutPage = () => {
               onClick={() => setShow(true)}>Ho letto e accetto i termini e condizioni.</Nav.Link>
             </Row>
         </Col>
-        <Col clasName="col-3">
-          <div class="container checkout-cart pt-3">
-              <h1 class="mt-0">Dechit Booking System</h1>
+        <Col className="col-3">
+          <div className="container checkout-cart pt-3">
+              <h1 className="mt-0">Dechit Booking System</h1>
               <Row className ="details-row time">
                   <Col>
-                    <Row class="pt-3">
-                      <p class="product-row col-2">
+                    <Row className="pt-3">
+                      <p className="product-row col-2">
                           <span>Data:</span>
                       </p>
-                      <div class="col-2 details-data">
+                      <div className="col-2 details-data">
                         <p>01/09/1995</p>
                       </div>
                     </Row>
                     <Row>
-                      <p class="product-row col-2">
+                      <p className="product-row col-2">
                           <span>Ora:</span>
                       </p>
-                      <div class="col-4 details-data">
+                      <div className="col-4 details-data">
                         <p>10.00AM - 11.00AM</p>
                       </div>
                     </Row>
                   </Col>
               </Row>
               <Row className ="details-row location">
-                  <div class="col-2">
+                  <div className="col-2">
                       <span>Aula:</span>
                   </div>
-                  <div class="col-2 details-data">
+                  <div className="col-2 details-data">
                       <p>Alfa</p>
                   </div>
-                  <div class="col-2">
+                  <div className="col-2">
                       <span>posto:</span>
                   </div>
-                  <div class="col-2 details-data">
+                  <div className="col-2 details-data">
                       <p>36</p>
                   </div>
               </Row>
               <Row className ="details-row total mx-0">
-                  <div class="col total-title px-0">
+                  <div className="col total-title px-0">
                       <p>Totale</p>
                   </div>
-                  <div class="col-2 details-data px-0 total-amount">
+                  <div className="col-2 details-data px-0 total-amount">
                       <p>2 EUR</p>
                   </div>
               </Row>

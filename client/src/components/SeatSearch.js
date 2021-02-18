@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import "../css/seatSearch.css";
-import TimePicker from "react-bootstrap-time-picker";
 
 const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
 
