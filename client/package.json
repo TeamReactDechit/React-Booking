@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.0-beta1",
     "date-fns": "^2.0.0-beta.5",
     "file-saver": "^2.0.5",
