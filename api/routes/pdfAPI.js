@@ -4,7 +4,7 @@ const pdfTemplate = require('../documents/pdf');
 const pdf = require('html-pdf');
 
 router.post('/create-pdf', (req, res) => {
-  pdf.create(pdfTemplate(req.body), {}).toFile('rezultati.pdf', (err) => {
+  pdf.create(pdfTemplate(req.body), {}).toFile(`${__dirname}/rezultati.pdf`, (err) => {
     if(err) {
         return console.log('error');
     }

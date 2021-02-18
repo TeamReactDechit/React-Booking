@@ -3,23 +3,26 @@ import "../css/confirmation.css";
 import { Row, Col, Button } from "react-bootstrap";
 import { saveAs } from 'file-saver';
 import axios from 'axios';
+import initialState  from "../redux/reducers/initialState";
+
 
 const Confirmation = () => {
-    this.state = {
+    const json = {
     name: 'Adrian',
     receiptId: 0,
     price1: 0,
     price2: 0,
 }
 
-this.createAndDownloadPdf = () => {
-axios.post('/create-pdf', this.state)
-.then(() => axios.get('/fetch-pdf', { responseType: 'blob' }))
-.then((res) => {
-const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
-saveAs(pdfBlob, 'generatedDocument.pdf')
-})
-}
+const createAndDownloadPdf = () => {
+    axios.post(initialState.baseurl + '/create-pdf', json)
+      .then(() => axios.get(initialState.baseurl + '/fetch-pdf', { responseType: 'blob' }))
+      .then((res) => {
+        const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+
+        saveAs(pdfBlob, 'newPdf.pdf');
+      })
+  }
 
     return (
         <>
@@ -51,7 +54,7 @@ saveAs(pdfBlob, 'generatedDocument.pdf')
                         </Row>
                         <Row className ="pdf-row">
                             <Col className ="px-0">
-                                <Button onClick={this.createAndDownloadPdf} className="link-btn pdf-btn">
+                                <Button onClick={createAndDownloadPdf} className="link-btn pdf-btn">
                                     SCARICA LA TUA PRENOTAZIONE
                                 </Button>
                             </Col>
