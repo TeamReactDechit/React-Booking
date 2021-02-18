@@ -3,6 +3,10 @@ const router = express.Router();
 
 const db = require("../database/database.js");
 const md5 = require("md5");
+const jwt = require('jsonwebtoken');
+
+const accessTokenSecret = 'youraccesstokensecret';
+
 
 /* Login. */
 router.post("/login", (req, res, next) => {
@@ -29,18 +33,24 @@ router.post("/login", (req, res, next) => {
           return;
       }
       if(row){
-        req.session.userId = row.id;
-        req.session.user = row;
+        const accessToken = jwt.sign({id: row.id, username: row.email,  type: row.type }, accessTokenSecret);
+
         res.json({
-          "message": "you are now logged with id="+req.session.userId,
-          "data": req.session.user
+          "message": "you are now logged as "+req.body.username,
+          "token": accessToken,
+          "data": {
+                    "id" : row.id,
+                    "name": row.name,
+                    "surname": row.surname,
+                    "email": row.email,
+                    "birthdate": row.birthdate
+                  }
         })
       } else {
         res.json({
           "error": "wrong credentials",
         })
       }
-      
   });
 })
 
