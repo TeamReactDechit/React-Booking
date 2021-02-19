@@ -3,6 +3,7 @@ const router = express.Router();
 
 const db = require("../database/database.js");
 const md5 = require("md5");
+const Users = require('../models').Users;
 
 function getBirthdate(birthdate){
     let dateParts = birthdate.split("-");
@@ -10,7 +11,7 @@ function getBirthdate(birthdate){
     return dateNumber;
 }
 
-/* GET users listing. */
+/* GET users listing. **
 router.get("/users", (req, res, next) => {
   let sql = "select * from users";
   let params = [];
@@ -23,6 +24,20 @@ router.get("/users", (req, res, next) => {
           "message":"success",
           "data":rows
       })
+    });
+}); */
+
+router.get("/users", (req, res, next) => {
+    Users.findAll()
+    .then((users) => {
+        res.json({
+            "message":"success",
+            "data":users
+        });
+    })
+    .catch((err) => {
+        res.status(400).json({"error":err.message});
+        return;
     });
 });
 

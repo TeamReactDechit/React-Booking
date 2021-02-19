@@ -1,3 +1,5 @@
+const md5 = require("md5");
+
 module.exports = (sequelize, DataTypes) => {
     const users = sequelize.define('Users', {
         id: {
@@ -14,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Column name cannot be empty'
                 },
                 len: {
-                    args: [6, 255],
-                    msg: 'Name length must be between 6 and 255'
+                    args: [1, 255],
+                    msg: 'Name length must be between 1 and 255'
                 }
             }
         },
@@ -27,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Column surname cannot be empty'
                 },
                 len: {
-                    args: [6, 255],
-                    msg: 'Surname length must be between 6 and 255'
+                    args: [1, 255],
+                    msg: 'Surname length must be between 1 and 255'
                 }
             }
         },
@@ -56,28 +58,22 @@ module.exports = (sequelize, DataTypes) => {
                     msg: 'Column name cannot be empty'
                 },
                 len: {
-                    args: [6, 255],
-                    msg: 'Name length must be between 6 and 255'
+                    args: [1, 255],
+                    msg: 'Name length must be between 1 and 255'
                 }
             }
         },
         birthdate : {
             allowNull: true,
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
         },
         role:{
             allowNull: false,
             type: DataTypes.STRING,
         }
     }, {
-        /*
-      hooks :{
-        beforeCreate(users) {
-          users.password = bc.hashSync(users.password, 12)
-        }
-      },*/
         tableName: 'users',
-        timestamps: false,
+        timestamps: true,
         underscored: true
     });
     users.associate = function (models) {

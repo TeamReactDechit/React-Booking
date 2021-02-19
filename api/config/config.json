@@ -8,7 +8,8 @@
     "storage": "./db.sqlite",
     "dialectOptions": {
       "useUTC": true
-    }
+    },
+    "logging": false
   },
   "test": {
     "username": "root",
@@ -16,7 +17,8 @@
     "database": "example",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "./db.sqlite"
+    "storage": "./db.sqlite",
+    "logging": false
   },
   "production": {
     "use_env_variable" : "ENVaRIaBLE",
@@ -25,6 +27,7 @@
     "database": "example",
     "host": "127.0.0.1",
     "dialect": "sqlite",
-    "storage": "./db.sqlite"
+    "storage": "./db.sqlite",
+    "logging": false
   }
 }

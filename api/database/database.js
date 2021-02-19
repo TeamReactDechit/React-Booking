@@ -1,3 +1,5 @@
+/**old database connection*
+
 const sqlite3 = require('sqlite3').verbose();
 const md5 = require('md5');
 
@@ -176,3 +178,4 @@ db.serialize(() => {
 });
 
 module.exports = db
+*/
