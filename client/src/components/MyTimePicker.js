@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Moment from 'react-moment';
 import moment from 'moment';
 
 const MyTimePicker = ({start, end, step, range}) =>{

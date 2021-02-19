@@ -4,8 +4,6 @@ import "../css/seatSearch.css";
 
 const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
 
-  var now = new Date();
-
   return (
   <div className="search-wrapper">
     <Form onSubmit={handleSubmit}>
