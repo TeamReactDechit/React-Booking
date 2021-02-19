@@ -41,7 +41,8 @@ const HomePage = ({findAllPrenotations, history}) => {
   }
 
   return (
-    <div className="row">
+    <div className="row home-page">
+    <h1 class="home-title mt-3">Benvenuto nel Dechit Booking system</h1>
       <div className="col-12 px-0 pt-4">
         <ConCarousel />
       </div>
