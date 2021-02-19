@@ -1,12 +1,14 @@
 const express = require('express');
 const md5 = require("md5");
 const jwt = require('jsonwebtoken');
+
 const router = express.Router();
+const Users = require('../models').Users;
 
 const accessTokenSecret = 'youraccesstokensecret';
 
 
-/* Login. */
+/* Login */
 router.post("/login", (req, res, next) => {
   let errors=[];
   if (!req.body.password){
@@ -21,34 +23,34 @@ router.post("/login", (req, res, next) => {
   }
   let data = {
       email: req.body.username,
-      password : md5(req.body.password)
+      password: md5(req.body.password)
   }
-  let sql ='SELECT * FROM users WHERE email=? AND password=?';
-  let params =[data.email, data.password]
-  db.get(sql, params, function (err, row) {
-      if (err){
-          res.status(400).json({"error": err.message})
-          return;
-      }
-      if(row){
-        const accessToken = jwt.sign({id: row.id, username: row.email,  type: row.type }, accessTokenSecret);
-
-        res.json({
-          "message": "you are now logged as "+req.body.username,
-          "token": accessToken,
-          "data": {
-                    "id" : row.id,
-                    "name": row.name,
-                    "surname": row.surname,
-                    "email": row.email,
-                    "birthdate": row.birthdate
-                  }
-        })
-      } else {
-        res.json({
-          "error": "wrong credentials",
-        })
-      }
+  Users.findOne({
+    where: data
+  })
+  .then((user) => {
+    if(user){
+      const accessToken = jwt.sign({id: user.id, email: user.email, role: user.role }, accessTokenSecret);
+      res.json({
+        "message": "you are now logged as "+user.email,
+        "token": accessToken,
+        "data": {
+                  "id" : user.id,
+                  "name": user.name,
+                  "surname": user.surname,
+                  "email": user.email,
+                  "birthdate": user.birthdate
+                }
+      })
+    }else{
+      res.json({
+        "error": "Username or password incorrect",
+      })
+    }
+  })
+  .catch((err) => {
+      res.status(400).json({"error":err.message});
+      return;
   });
 })
 
