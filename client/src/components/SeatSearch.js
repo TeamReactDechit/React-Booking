@@ -4,6 +4,8 @@ import "../css/seatSearch.css";
 
 const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
 
+  var now = new Date();
+
   return (
   <div className="search-wrapper">
     <Form onSubmit={handleSubmit}>
@@ -20,6 +22,7 @@ const SeatSearch = ({handleChange, handleSubmit, validateForm}) => {
             name="date"
             placeholder=""
             onChange={handleChange}
+            min = {new Date().toISOString().split('T')[0]}
           />
         </Col>
       </Row>
