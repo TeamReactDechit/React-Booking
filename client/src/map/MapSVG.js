@@ -1,9 +1,10 @@
 import "./map.css";
-// import elementMaps from "./elementMap.json";
+import elementMaps from "./elementMap.json";
 import Oggetto from "./oggetto";
+import Sedia from "./Sedia";
 
-const MapSVG = () => {
-  // let maps = elementMaps;
+const MapSVG = ({handleClick}) => {
+  let maps = elementMaps;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -112,40 +113,25 @@ const MapSVG = () => {
         />
 
         <Oggetto nome="tavolo_1">
-          <Oggetto
-            nome="sedia_6"
-            coordinate={[
-              "M1107.1 607.7l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
-              "M1107.8 613.2c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
-            ]}
-            attributi={[
-              [
-                { name: "className", value: "sedia" },
-                { name: "pointerEvents", value: "all" },
-              ],
-              [
-                { name: "className", value: "sedia" },
-                { name: "pointerEvents", value: "all" },
-              ],
-            ]}
+          <Sedia 
+          id="sedia_6"
+          coordinate={[
+            "M1107.1 607.7l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
+            "M1107.8 613.2c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
+          ]}
+          handleClick={handleClick}
           />
-          <Oggetto
-            nome="sedia_5"
-            coordinate={[
-              "M1167.1 607.7l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
-              "M1167.8 613.2c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
-            ]}
-            attributi={[
-              [
-                { name: "className", value: "sedia" },
-                { name: "pointerEvents", value: "all" },
-              ],
-              [
-                { name: "className", value: "sedia" },
-                { name: "pointerEvents", value: "all" },
-              ],
-            ]}
+
+        <Sedia 
+          id="sedia_5"
+          coordinate={[
+            "M1167.1 607.7l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
+            "M1167.8 613.2c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
+          ]}
+          handleClick={handleClick}
           />
+          
+          
           <Oggetto
             nome="sedia_4"
             coordinate={[

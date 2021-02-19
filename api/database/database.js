@@ -164,7 +164,7 @@ db.serialize(() => {
                 // Table just created, creating some rows
                 let insert = 'INSERT INTO prenotations (user_id, location_id, seat_id, date, hour, status, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)';
                 db.run(insert, [0,1,1,Date.UTC(2021, 4, 1, 0,0,0,0),9,"ACTIVE",Date.now(),null]);
-                db.run(insert, [0,1,1,Date.UTC(2021, 4, 1, 0,0,0,0),9,"ACTIVE",Date.now(),null]);
+                db.run(insert, [0,1,1,Date.UTC(2021, 4, 1, 0,0,0,0),13,"ACTIVE",Date.now(),null]);
                 db.run(insert, [0,1,4,Date.UTC(2021, 4, 1, 0,0,0,0),10,"ACTIVE",Date.now(),null]);
                 db.run(insert, [0,1,5,Date.UTC(2021, 4, 1, 0,0,0,0),15,"ACTIVE",Date.now(),null]);
                 
