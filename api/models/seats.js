@@ -6,23 +6,22 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true
         },
-        number : {
+        number: {
             allowNull: false,
             type: DataTypes.INTEGER,
         },
-        location_id : {
+        location_id: {
             allowNull: false,
             type: DataTypes.INTEGER,
         },
-        created_at : {
-            allowNull: true,
+        created_at: {
+            allowNull: false,
             type: DataTypes.INTEGER,
         },
-        updated_at : {
+        updated_at: {
             allowNull: true,
             type: DataTypes.INTEGER,
         }
-        
     }, 
     {
         tableName: 'seats',

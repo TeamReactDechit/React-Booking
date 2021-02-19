@@ -1,32 +1,11 @@
 const express = require('express');
-const router = express.Router();
-
-const db = require("../database/database.js");
 const md5 = require("md5");
+
+const router = express.Router();
 const Users = require('../models').Users;
 
-function getBirthdate(birthdate){
-    let dateParts = birthdate.split("-");
-    let dateNumber = Date.UTC(dateParts[0], dateParts[1]-1, dateParts[2]);
-    return dateNumber;
-}
 
-/* GET users listing. **
-router.get("/users", (req, res, next) => {
-  let sql = "select * from users";
-  let params = [];
-  db.all(sql, params, (err, rows) => {
-      if (err) {
-        res.status(400).json({"error":err.message});
-        return;
-      }
-      res.json({
-          "message":"success",
-          "data":rows
-      })
-    });
-}); */
-
+/* get all users */
 router.get("/users", (req, res, next) => {
     Users.findAll()
     .then((users) => {
@@ -37,70 +16,67 @@ router.get("/users", (req, res, next) => {
     })
     .catch((err) => {
         res.status(400).json({"error":err.message});
-        return;
     });
 });
 
-/* GET a user by id. */
+/* get a user by id */
 router.get("/user/:id", (req, res, next) => {
-  let sql = "select * from users where id = ?"
-  let params = [req.params.id]
-  db.get(sql, params, (err, row) => {
-      if (err) {
+    let id = req.params.id;
+    Users.findByPk(id)
+    .then((user) => {
+        if(user){
+            res.json({
+                "message":"success",
+                "data":user
+            })
+        }else{
+            res.json({
+                "message":`no user with id=${id}`
+            })
+        }
+    })
+    .catch((err) => {
         res.status(400).json({"error":err.message});
         return;
-      }
-      if(row){
-        res.json({
-            "message":"success",
-            "data":row
-        })
-      }else{
-        res.json({
-            "message":"no user with id="+req.params.id
-        })
-      }
     });
 });
 
-/* Create a new user. */
+/* Create a new user */
 router.post("/user", (req, res, next) => {
-  let errors=[]
-  if (!req.body.password){
-      errors.push("No password specified");
-  }
-  if (!req.body.email){
-      errors.push("No email specified");
-  }
-  if (errors.length){
-      res.status(400).json({"error":errors.join(",")});
-      return;
-  }
-  let data = {
-      name: req.body.name,
-      surname: req.body.surname,
-      email: req.body.email,
-      password : md5(req.body.password),
-      birthdate: getBirthdate(req.body.birthdate),
-      type: "USER",
-      created_at: Date.now()
-  }
-  let sql ='INSERT INTO users (name, surname, email, password, birthdate, type, created_at) VALUES (?,?,?,?,?,?,?)';
-  let params =[data.name, data.surname, data.email, data.password, data.birthdate, data.type, data.created_at];
-  db.run(sql, params, function (err, result) {
-      if (err){
-          res.status(400).json({"error": err.message})
-          return;
-      }
-      res.json({
-          "message": "success",
-          "data": data,
-          "id" : this.lastID
-      })
-  });
+    let errors=[]
+    if (!req.body.password){
+        errors.push("No password specified");
+    }
+    if (!req.body.email){
+        errors.push("No email specified");
+    }
+    if (errors.length){
+        res.status(400).json({"error":errors.join(",")});
+        return;
+    }
+    let data = {
+        name: req.body.name,
+        surname: req.body.surname,
+        email: req.body.email,
+        password : md5(req.body.password),
+        birthdate: getBirthdate(req.body.birthdate),
+        role: "USER",
+        created_at: Date.now()
+    }
+    Users.create(data)
+    .then((user) => {
+        res.json({
+            "message": "success",
+            "data": user
+        })
+    })
+    .catch((err) => {
+        res.status(400).json({"error":err.message});
+        return;
+    });
 })
 
-/* Update an existing user. */
+/* Update an existing user
 router.patch("/user/:id", (req, res, next) => {
     let data = {
         name: req.body.name,
@@ -136,19 +112,31 @@ router.patch("/user/:id", (req, res, next) => {
             })
     });
 })
+ */
 
-/* Delete an existing user. */
+/* Delete an existing user by id */
 router.delete("/user/:id", (req, res, next) => {
-    db.run(
-        'DELETE FROM users WHERE id = ?',
-        req.params.id,
-        function (err, result) {
-            if (err){
-                res.status(400).json({"error": res.message})
-                return;
-            }
-            res.json({"message":"deleted", changes: this.changes})
+    let id = req.params.id;
+    Users.destroy({
+        where: {
+            id: id
+        }
+    })
+    .then(() => {
+        res.json({
+            "message": `user with id=${id} was successfully deleted`
+        })
+    })
+    .catch((err) => {
+        res.status(400).json({"error":err.message});
+        return;
     });
 })
+
+function getBirthdate(birthdate){
+    let dateParts = birthdate.split("-");
+    let dateNumber = Date.UTC(dateParts[0], dateParts[1]-1, dateParts[2]);
+    return dateNumber;
+}
 
 module.exports = router;

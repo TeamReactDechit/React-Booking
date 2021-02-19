@@ -9,9 +9,9 @@ const session = require('express-session');
 const app = express();
 
 // models
-var models = require("./models");
+const models = require("./models");
 
-// routes management
+// routes
 const prenotationsRouter = require('./routes/prenotations');
 const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
@@ -19,7 +19,7 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const pdfAPIRouter = require('./routes/pdfAPI');
 
-//Sync Database
+// Database synchronization
 models.sequelize.sync().then(function() {
   console.log('connected to database')
 }).catch(function(err) {
@@ -30,6 +30,7 @@ models.sequelize.sync().then(function() {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// modules configurations
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,12 +40,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({
-  secret: 'mydechitsecret',
+  secret: 'mySecret',
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 60000 }
 }))
 
+// routes handler
 app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/api', usersRouter);

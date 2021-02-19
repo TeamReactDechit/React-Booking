@@ -1,5 +1,3 @@
-const md5 = require("md5");
-
 module.exports = (sequelize, DataTypes) => {
     const users = sequelize.define('Users', {
         id: {
@@ -70,10 +68,18 @@ module.exports = (sequelize, DataTypes) => {
         role:{
             allowNull: false,
             type: DataTypes.STRING,
+        },
+        created_at : {
+            allowNull: false,
+            type: DataTypes.INTEGER,
+        },
+        updated_at : {
+            allowNull: true,
+            type: DataTypes.INTEGER,
         }
     }, {
         tableName: 'users',
-        timestamps: true,
+        timestamps: false,
         underscored: true
     });
     users.associate = function (models) {

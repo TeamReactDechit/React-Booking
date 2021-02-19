@@ -1,9 +1,7 @@
 const express = require('express');
-const router = express.Router();
-
-const db = require("../database/database.js");
 const md5 = require("md5");
 const jwt = require('jsonwebtoken');
+const router = express.Router();
 
 const accessTokenSecret = 'youraccesstokensecret';
 

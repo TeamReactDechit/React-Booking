@@ -5,23 +5,23 @@ const md5 = require("md5");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Users',[{
-        name: 'Gianmarco',
-        surname: 'Scaletta',
-        email: 'gian.scal@test.it',
-        password: md5('test'),
-        birthdate: Date.UTC(1989,2,16),
+        name: 'Admin',
+        surname: 'Admin',
+        email: 'test.admin@test.tst',
+        password: md5('admin'),
+        birthdate: Date.UTC(1950,0,1),
         role: 'ADMIN',
         created_at: Date.now(),
-        updated_at: Date.now()
+        updated_at: null
       },{
-        name: 'Marco',
-        surname: 'Decarlo',
-        email: 'marco.deca@test.it',
-        password: md5('pass'),
-        birthdate: Date.UTC(1990,2,10),
+        name: 'User',
+        surname: 'User',
+        email: 'test.user@test.tst',
+        password: md5('user'),
+        birthdate: Date.UTC(1990,2,15),
         role: 'USER',
         created_at: Date.now(),
-        updated_at: Date.now()
+        updated_at: null
       },
     ], {});
   },
@@ -29,6 +29,6 @@ module.exports = {
   down: async (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
     await queryInterface.bulkDelete('Users', {
-        name: {[Op.in]: ['Gianmarco','Marco']} }, {});
+        name: {[Op.in]: ['Admin','User']} }, {});
   }
 };

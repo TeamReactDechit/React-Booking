@@ -6,40 +6,39 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             autoIncrement: true
         },
-        user_id :{
+        user_id: {
             allowNull: true,
             type: Sequelize.INTEGER,
         },
-        location_id :{
+        location_id: {
             allowNull: true,
             type: Sequelize.INTEGER,
         },
-        seat_id :{
+        seat_id: {
             allowNull: true,
             type: Sequelize.INTEGER,
         },
-        date : {
+        date: {
             allowNull: false,
             type: Sequelize.INTEGER,
         },
-        hour : {
+        hour: {
             allowNull: false,
             type: Sequelize.INTEGER,
         },
-        status : {
+        status: {
             allowNull: false,
             type: Sequelize.STRING,
         },
-        created_at : {
+        created_at: {
             allowNull: false,
             type: Sequelize.INTEGER,
         },
-        updated_at : {
+        updated_at: {
             allowNull: true,
             type: Sequelize.INTEGER,
         }
-        
-    }, 
+    },
     {
         tableName: 'prenotations',
         timestamps: false,
