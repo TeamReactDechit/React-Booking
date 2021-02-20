@@ -1,7 +1,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     let seats = [];
-    for (let j = 1; j <= 10; j++) {
+    for (let j = 1; j <= 4; j++) {
       seats.push({
         number: j,
         location_id: 1,
@@ -10,7 +10,7 @@ module.exports = {
       });
     }
 
-    for (let j = 1; j <= 18; j++) {
+    for (let j = 1; j <= 4; j++) {
       seats.push({
         number: j,
         location_id: 2,
@@ -28,7 +28,7 @@ module.exports = {
       });
     }
 
-    for (let j = 1; j <= 4; j++) {
+    for (let j = 1; j <= 10; j++) {
       seats.push({
         number: j,
         location_id: 4,
@@ -37,7 +37,7 @@ module.exports = {
       });
     }
 
-    for (let j = 1; j <= 6; j++) {
+    for (let j = 1; j <= 18; j++) {
       seats.push({
         number: j,
         location_id: 5,
@@ -46,7 +46,7 @@ module.exports = {
       });
     }
 
-    for (let j = 1; j <= 4; j++) {
+    for (let j = 1; j <= 6; j++) {
       seats.push({
         number: j,
         location_id: 6,

@@ -1,43 +1,48 @@
 import React, { useEffect, useState } from "react";
 import Cart from "../components/Cart";
 import MapSVG from "../map/MapSVG";
+import { findAllLocattionsSeats } from "../redux/actions/locationsActions";
 import { connect } from "react-redux";
 
-const BookingPage = ({prenotations}) =>{
-    const [sedia, setSedia] = useState();
-    const [prenotazioni, setPrenotazioni] = useState();
+const BookingPage = ({ prenotations, locations, findAllLocattionsSeats }) => {
+  const [sedia, setSedia] = useState();
 
-    
+  useEffect(() => {
+    findAllLocattionsSeats()
+      .then(() => {
+        console.log("ciaone");
+      })
+      .catch((error) => {});
+  }, []);
 
+  function handleClick(event, id) {
+    setSedia({ sedia_id: id });
+  }
 
-      
-    function handleClick( event, id ) {
-        setSedia({"sedia_id":id});
-      }
-
-    return (
-        <div className="row">
-            <div className="col-12 mb-5 mt-3">
-                <h1>Seleziona il posto</h1>
-            </div>
-            <div className="col-6">
-                <MapSVG handleClick={handleClick}/>
-            </div>
-            <div className="col-6">
-                <Cart sedia={sedia} prenotations={prenotations}/>
-            </div>
-        </div>
-      );
-}
+  return (
+    <div className="row">
+      <div className="col-12 mb-5 mt-3">
+        <h1>Seleziona il posto</h1>
+      </div>
+      <div className="col-6">
+        <MapSVG handleClick={handleClick} mappa={locations}/>
+      </div>
+      <div className="col-6">
+        <Cart sedia={sedia} prenotations={prenotations} />
+      </div>
+    </div>
+  );
+};
 
 function mapStateToProps(state) {
-    return {
-        prenotations: state.prenotations,
-    };
-  }
-  
-  const mapDispatchToProps = {
+  return {
+    prenotations: state.prenotations,
+    locations: state.locations,
   };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(BookingPage);
-  
+}
+
+const mapDispatchToProps = {
+  findAllLocattionsSeats,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookingPage);

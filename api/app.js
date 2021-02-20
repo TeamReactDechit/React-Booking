@@ -16,6 +16,7 @@ const models = require("./models");
 
 // routes
 const prenotationsRouter = require('./routes/prenotations');
+const locationsRouter = require('./routes/locations');
 const indexRouter = require('./routes/index');
 const testAPIRouter = require('./routes/testAPI');
 const usersRouter = require('./routes/users');
@@ -55,6 +56,7 @@ app.use('/testAPI', testAPIRouter);
 app.use('/api', usersRouter);
 app.use('/api', authRouter);
 app.use('/api', prenotationsRouter);
+app.use('/api', locationsRouter);
 app.use('/api', pdfAPIRouter);
 
 // catch 404 and forward to error handler
