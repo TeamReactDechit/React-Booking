@@ -33,7 +33,10 @@ const HomePage = ({findAllPrenotations, history}) => {
     debugger
     findAllPrenotations(startDate)
     .then(() => {
-      history.push("/booking");
+      history.push({
+      pathname: "/booking",
+      state: { startDate }
+    });
     })
     .catch((error) => {
       setErrors({ error: error.message });

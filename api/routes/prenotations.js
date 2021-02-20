@@ -25,7 +25,7 @@ router.post('/all/prenotations', async (req, res) => {
     const params = req.body.date;
     const datePrenotations = getDate(params);
         try{
-            const result = await findDatePrenotations({date:datePrenotations}); 
+            const result = await findDatePrenotations({date:datePrenotations});
             res.json(result);
         }catch(e){
             res.status(500).send(e.toString());

@@ -48,7 +48,8 @@
   stroke: #da6c06;
 }
 
-.stanza .on .sedia{
+.stanza .on .sedia,
+.stanza .active .sedia{
   fill: #da6c06;
   stroke: #da6c06;
 }
