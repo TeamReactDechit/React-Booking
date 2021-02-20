@@ -13,7 +13,6 @@ export function findAllPrenotations(prenotations) {
     return prenotationsApi
         .getPrenotations(prenotations)
         .then(p => {
-            debugger
         dispatch(loadDataPrenotationsSuccess(p));
         })
         .catch(error => {

@@ -4,9 +4,9 @@ import Oggetto from "./oggetto";
 import Sedia from "./Sedia";
 import { useEffect } from "react";
 
-const MapSVG = ({ handleClick, mappa, sedia }) => {
+const MapSVG = ({ handleClick, mappa, sedia_selected }) => {
   let maps = elementMaps;
-  
+
   return (
     mappa.length && (
       <svg
@@ -18,8 +18,7 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
         viewBox="0 0 1342 834"
         xmlSpace="preserve"
       >
-
-<Oggetto
+        <Oggetto
           nome="pavimento"
           coordinate={[
             "M713.4 723.5L713.4 482.5 423.8 482.5 423.8 832.5 246.1 833 240.5 277.1 1190.5 277.1 1190.5 398.7 916 398.7 916 723.5z",
@@ -66,39 +65,43 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           />
           <Oggetto nome="tavolo_1" stile="tavolo">
             <Sedia
-              id={mappa[0].Seats[0].id}
+              sedia={mappa[0].Seats[0]}
+              room={mappa[0]}
               coordinate={[
                 "M521.8 566.1l24.1-3c3.5-.6 7.1 1 9 4 1.6 10.2 1.6 20.7 0 30.9-1.9 3-5.5 4.5-9 4l-24.1-3c-2.7-.6-4.7-3.4-5-7v-19c.3-3.5 2.3-6.4 5-6.9z",
                 "M516.3 566.8c.3-.8 1.3-1.3 2.2-1 .9.3 1.4 1.2 1.1 2-2.4 9.8-2.4 20 0 29.9-.2.6-.7 1.1-1.4 1.3-.7.2-1.4.1-2-.3-2.7-10.5-2.7-21.4.1-31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[0].Seats[1].id}
+              sedia={mappa[0].Seats[1]}
+              room={mappa[0]}
               coordinate={[
                 "M599.9 520.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h19c3.5.3 6.4 2.3 6.9 5z",
                 "M599.2 515.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[0].Seats[2].id}
+              sedia={mappa[0].Seats[2]}
+              room={mappa[0]}
               coordinate={[
                 "M645.2 598.9l-24.1 3c-3.5.6-7.1-1-9-4-1.6-10.2-1.6-20.7 0-30.9 1.9-3 5.5-4.5 9-4l24.1 3c2.7.6 4.7 3.4 5 7v19c-.3 3.5-2.3 6.4-5 6.9z",
                 "M650.7 598.2c-.3.8-1.3 1.3-2.2 1-.9-.3-1.4-1.2-1.1-2 2.4-9.8 2.4-20 0-29.9.2-.6.7-1.1 1.4-1.3.7-.2 1.4-.1 2 .3 2.7 10.5 2.7 21.4-.1 31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[0].Seats[3].id}
+              sedia={mappa[0].Seats[3]}
+              room={mappa[0]}
               coordinate={[
                 "M567.1 644.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
                 "M567.8 649.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Oggetto
@@ -110,32 +113,32 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
                   { name: "pointerEvents", value: "all" },
                 ],
               ]}
-            />            
+            />
           </Oggetto>
           <Oggetto
-              nome="porta"
-              coordinate={[
-                "M413.5 602.5H493.5V607.5H413.5z",
-                "M493.5 607.5c0 44.2-35.8 80-80 80v-80",
-              ]}
-              attributi={[
-                [
-                  { name: "className", value: "porta" },
-                  { name: "pointerEvents", value: "all" },
-                ],
-                [
-                  { name: "className", value: "porta" },
-                  { name: "pointerEvents", value: "all" },
-                ],
-              ]}
-            />
-            <Oggetto
-          nome="muro"
-          coordinate={[
-            "M723.4 723.5L724.3 472.5 413.8 472.5 413.5 602 423.6 602 423.8 482.5 713.4 482.5 713.4 713 593.5 713.5 593.5 822.5 423.8 822.5 423.6 692.5 413.5 692.5 413.8 832.5 603.5 832.5 603.5 723.5z",
-          ]}
-          attributi={[[{ name: "className", value: "muro" }]]}
-        />
+            nome="porta"
+            coordinate={[
+              "M413.5 602.5H493.5V607.5H413.5z",
+              "M493.5 607.5c0 44.2-35.8 80-80 80v-80",
+            ]}
+            attributi={[
+              [
+                { name: "className", value: "porta" },
+                { name: "pointerEvents", value: "all" },
+              ],
+              [
+                { name: "className", value: "porta" },
+                { name: "pointerEvents", value: "all" },
+              ],
+            ]}
+          />
+          <Oggetto
+            nome="muro"
+            coordinate={[
+              "M723.4 723.5L724.3 472.5 413.8 472.5 413.5 602 423.6 602 423.8 482.5 713.4 482.5 713.4 713 593.5 713.5 593.5 822.5 423.8 822.5 423.6 692.5 413.5 692.5 413.8 832.5 603.5 832.5 603.5 723.5z",
+            ]}
+            attributi={[[{ name: "className", value: "muro" }]]}
+          />
         </Oggetto>
 
         <Oggetto nome={mappa[1].id} stile="stanza">
@@ -159,40 +162,44 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           />
 
           <Oggetto nome="tavolo_1">
-          <Sedia
-              id={mappa[1].Seats[0].id}
+            <Sedia
+              sedia={mappa[1].Seats[0]}
+              room={mappa[1]}
               coordinate={[
                 "M165.2 673.9l-24.1 3c-3.5.6-7.1-1-9-4-1.6-10.2-1.6-20.7 0-30.9 1.9-3 5.5-4.5 9-4l24.1 3c2.7.6 4.7 3.4 5 7v19c-.3 3.5-2.3 6.4-5 6.9z",
                 "M170.7 673.2c-.3.8-1.3 1.3-2.2 1-.9-.3-1.4-1.2-1.1-2 2.4-9.8 2.4-20 0-29.9.2-.6.7-1.1 1.4-1.3.7-.2 1.4-.1 2 .3 2.7 10.5 2.7 21.4-.1 31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-             <Sedia
-              id={mappa[1].Seats[1].id}
+            <Sedia
+              sedia={mappa[1].Seats[1]}
+              room={mappa[1]}
               coordinate={[
                 "M119.9 595.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.6-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h19c3.5.3 6.4 2.3 6.9 5z",
                 "M119.2 590.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[1].Seats[2].id}
+              sedia={mappa[1].Seats[2]}
+              room={mappa[1]}
               coordinate={[
                 "M41.8 641.1l24.1-3c3.5-.6 7.1 1 9 4 1.6 10.2 1.6 20.7 0 30.9-1.9 3-5.5 4.5-9 4l-24.1-3c-2.7-.6-4.7-3.4-5-7v-19c.3-3.5 2.3-6.4 5-6.9z",
                 "M36.3 641.8c.3-.8 1.3-1.3 2.2-1 .9.3 1.4 1.2 1.1 2-2.4 9.8-2.4 20 0 29.9-.2.6-.7 1.1-1.4 1.3-.7.2-1.4.1-2-.3-2.7-10.5-2.7-21.4.1-31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[1].Seats[3].id}
+              sedia={mappa[1].Seats[3]}
+              room={mappa[1]}
               coordinate={[
                 "M87.1 719.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5H94c-3.5-.3-6.4-2.3-6.9-5z",
                 "M87.8 724.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Oggetto
@@ -280,8 +287,7 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           ]}
         />
 
-
-<Oggetto nome={mappa[2].id} stile="stanza">
+        <Oggetto nome={mappa[2].id} stile="stanza">
           <Oggetto
             nome="pavimento"
             coordinate={["M5.5 307.5L245.5 307.5 247.5 553.6 5.5 553.9z"]}
@@ -302,40 +308,44 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           />
 
           <Oggetto nome="tavolo_1">
-          <Sedia
-              id={mappa[2].Seats[0].id}
+            <Sedia
+              sedia={mappa[2].Seats[0]}
+              room={mappa[2]}
               coordinate={[
                 "M175.2 428.9l-24.1 3c-3.5.6-7.1-1-9-4-1.6-10.2-1.6-20.7 0-30.9 1.9-3 5.5-4.5 9-4l24.1 3c2.7.6 4.7 3.4 5 7v19c-.3 3.5-2.3 6.4-5 6.9z",
                 "M180.7 428.2c-.3.8-1.3 1.3-2.2 1-.9-.3-1.4-1.2-1.1-2 2.4-9.8 2.4-20 0-29.9.2-.6.7-1.1 1.4-1.3.7-.2 1.4-.1 2 .3 2.7 10.5 2.7 21.4-.1 31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[2].Seats[1].id}
+              sedia={mappa[2].Seats[1]}
+              room={mappa[2]}
               coordinate={[
                 "M129.9 350.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.6-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h19c3.5.3 6.4 2.3 6.9 5z",
                 "M129.2 345.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[2].Seats[2].id}
+              sedia={mappa[2].Seats[2]}
+              room={mappa[2]}
               coordinate={[
                 "M51.8 396.1l24.1-3c3.5-.6 7.1 1 9 4 1.6 10.2 1.6 20.7 0 30.9-1.9 3-5.5 4.6-9 4l-24.1-3c-2.7-.6-4.7-3.4-5-7v-19c.3-3.5 2.3-6.4 5-6.9z",
                 "M46.3 396.8c.3-.8 1.3-1.3 2.2-1 .9.3 1.4 1.2 1.1 2-2.4 9.9-2.4 20.1 0 29.9-.2.6-.7 1.1-1.4 1.3-.7.2-1.4.1-2-.3-2.7-10.5-2.7-21.4.1-31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[2].Seats[3].id}
+              sedia={mappa[2].Seats[3]}
+              room={mappa[2]}
               coordinate={[
                 "M97.1 474.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
                 "M97.8 479.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Oggetto
@@ -396,97 +406,107 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           />
 
           <Oggetto nome="tavolo_1">
-          <Sedia
-              id={mappa[3].Seats[0].id}
+            <Sedia
+              sedia={mappa[3].Seats[0]}
+              room={mappa[3]}
               coordinate={[
                 "M104.8 110.4l28.9-4c4.2-.8 8.5 1.3 10.8 5.3 1.9 13.7 1.9 27.6 0 41.3-2.3 4-6.6 6.1-10.8 5.3l-28.9-4c-3.2-.8-5.7-4.6-6-9.3v-25.3c.4-4.7 2.9-8.5 6-9.3z",
                 "M98.2 111.5c.4-1.1 1.6-1.7 2.7-1.3 1.1.4 1.7 1.6 1.3 2.7-2.9 13.2-2.9 26.8 0 39.9-.2.8-.8 1.5-1.7 1.8-.8.3-1.7.1-2.4-.4-3.2-14.1-3.2-28.7.1-42.7",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[1].id}
+            <Sedia
+              sedia={mappa[3].Seats[1]}
+              room={mappa[3]}
               coordinate={[
                 "M201.4 64.9l4 28.9c.8 4.2-1.3 8.5-5.3 10.8-13.7 1.9-27.6 1.9-41.3 0-4-2.3-6.1-6.6-5.3-10.8l4-28.9c.8-3.2 4.6-5.7 9.3-6h25.3c4.8.4 8.6 2.8 9.3 6z",
                 "M200.4 58.3c1.1.4 1.7 1.6 1.3 2.7-.4 1.1-1.6 1.7-2.7 1.4-13.2-2.9-26.8-2.9-39.9 0-.8-.2-1.5-.8-1.8-1.7-.3-.8-.1-1.7.4-2.4 14.1-3.3 28.7-3.3 42.7 0",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[2].id}
+            <Sedia
+              sedia={mappa[3].Seats[2]}
+              room={mappa[3]}
               coordinate={[
                 "M267.6 64.9l4 28.9c.8 4.2-1.3 8.5-5.3 10.8-13.7 1.9-27.6 1.9-41.3 0-4-2.3-6.1-6.6-5.3-10.8l4-28.9c.8-3.2 4.6-5.7 9.3-6h25.3c4.7.4 8.5 2.8 9.3 6z",
                 "M266.5 58.3c1.1.4 1.7 1.6 1.3 2.7-.4 1.1-1.6 1.7-2.7 1.4-13.2-2.9-26.8-2.9-39.9 0-.8-.2-1.5-.8-1.8-1.7-.3-.8-.1-1.7.4-2.4 14.1-3.3 28.7-3.3 42.7 0",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[3].id}
+            <Sedia
+              sedia={mappa[3].Seats[3]}
+              room={mappa[3]}
               coordinate={[
                 "M339 64.9l4 28.9c.8 4.2-1.3 8.5-5.3 10.8-13.7 1.9-27.6 1.9-41.3 0-4-2.3-6.1-6.6-5.3-10.8l4-28.9c.8-3.2 4.6-5.7 9.3-6h25.3c4.8.4 8.6 2.8 9.3 6z",
                 "M338 58.3c1.1.4 1.7 1.6 1.3 2.7-.4 1.1-1.6 1.7-2.7 1.4-13.1-2.9-26.8-2.9-39.9 0-.8-.2-1.5-.8-1.8-1.7-.3-.8-.1-1.7.4-2.4 14.1-3.3 28.7-3.3 42.7 0",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[4].id}
+            <Sedia
+              sedia={mappa[3].Seats[4]}
+              room={mappa[3]}
               coordinate={[
                 "M405.8 64.9l4 28.9c.8 4.2-1.3 8.5-5.3 10.8-13.7 1.9-27.6 1.9-41.3 0-4-2.3-6.1-6.6-5.3-10.8l4-28.9c.8-3.2 4.6-5.7 9.3-6h25.3c4.7.4 8.5 2.8 9.3 6z",
                 "M404.8 58.3c1.1.4 1.7 1.6 1.3 2.7-.4 1.1-1.6 1.7-2.7 1.4-13.2-2.9-26.8-2.9-39.9 0-.8-.2-1.5-.8-1.8-1.7-.3-.8-.1-1.7.4-2.4 14.1-3.3 28.7-3.3 42.7 0",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[5].id}
+            <Sedia
+              sedia={mappa[3].Seats[5]}
+              room={mappa[3]}
               coordinate={[
                 "M455.2 149.6l-28.9 4c-4.2.8-8.5-1.3-10.8-5.3-1.9-13.7-1.9-27.6 0-41.3 2.3-4 6.6-6.1 10.8-5.3l28.9 4c3.2.8 5.6 4.6 6 9.3v25.3c-.4 4.7-2.8 8.5-6 9.3z",
                 "M461.8 148.5c-.4 1.1-1.6 1.7-2.7 1.3-1.1-.4-1.7-1.6-1.4-2.7 2.9-13.2 2.9-26.8 0-39.9.2-.8.8-1.5 1.7-1.8.8-.3 1.7-.1 2.4.4 3.3 14.1 3.3 28.7 0 42.7",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[6].id}
+            <Sedia
+              sedia={mappa[3].Seats[6]}
+              room={mappa[3]}
               coordinate={[
                 "M363.9 195.1l-4-28.9c-.8-4.2 1.3-8.5 5.3-10.8 13.7-1.9 27.6-1.9 41.3 0 4 2.3 6.1 6.6 5.3 10.8l-4 28.9c-.8 3.2-4.6 5.7-9.3 6h-25.3c-4.7-.4-8.5-2.8-9.3-6z",
                 "M364.9 201.7c-1.1-.4-1.7-1.6-1.3-2.7s1.6-1.7 2.7-1.3c13.2 2.9 26.8 2.9 39.9 0 .8.2 1.5.8 1.8 1.7.3.8.1 1.7-.4 2.4-14.1 3.2-28.7 3.2-42.7-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[7].id}
+            <Sedia
+              sedia={mappa[3].Seats[7]}
+              room={mappa[3]}
               coordinate={[
                 "M297.1 195.1l-4-28.9c-.8-4.2 1.3-8.5 5.3-10.8 13.7-1.9 27.6-1.9 41.3 0 4 2.3 6.1 6.6 5.3 10.8l-4 28.9c-.8 3.2-4.6 5.7-9.3 6h-25.3c-4.7-.4-8.5-2.8-9.3-6z",
                 "M298.2 201.7c-1.1-.4-1.7-1.6-1.3-2.7.4-1.1 1.6-1.7 2.7-1.3 13.1 2.9 26.8 2.9 39.9 0 .8.2 1.5.8 1.8 1.7.3.8.1 1.7-.4 2.4-14.2 3.2-28.7 3.2-42.7-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[8].id}
+            <Sedia
+              sedia={mappa[3].Seats[8]}
+              room={mappa[3]}
               coordinate={[
                 "M225.6 195.1l-4-28.9c-.8-4.2 1.3-8.5 5.3-10.8 13.7-1.9 27.6-1.9 41.3 0 4 2.3 6.1 6.6 5.3 10.8l-4 28.9c-.8 3.2-4.6 5.7-9.3 6H235c-4.8-.4-8.6-2.8-9.4-6z",
                 "M226.7 201.7c-1.1-.4-1.7-1.6-1.3-2.7s1.6-1.7 2.7-1.3c13.2 2.9 26.8 2.9 39.9 0 .8.2 1.5.8 1.8 1.7.3.8.1 1.7-.4 2.4-14.1 3.2-28.7 3.2-42.7-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-          <Sedia
-              id={mappa[3].Seats[9].id}
+            <Sedia
+              sedia={mappa[3].Seats[9]}
+              room={mappa[3]}
               coordinate={[
                 "M159.5 195.1l-4-28.9c-.8-4.2 1.3-8.5 5.3-10.8 13.7-1.9 27.6-1.9 41.3 0 4 2.3 6.1 6.6 5.3 10.8l-4 28.9c-.8 3.2-4.6 5.7-9.3 6h-25.3c-4.7-.4-8.5-2.8-9.3-6z",
                 "M160.6 201.7c-1.1-.4-1.7-1.6-1.3-2.7s1.6-1.7 2.7-1.3c13.2 2.9 26.8 2.9 39.9 0 .8.2 1.5.8 1.8 1.7.3.8.1 1.7-.4 2.4-14.1 3.2-28.7 3.2-42.7-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
-            
+
             <Oggetto
               nome="tavolo"
               coordinate={[
@@ -504,7 +524,6 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           />
         </Oggetto>
 
-
         <Oggetto nome={mappa[4].id} stile="stanza">
           <Oggetto
             nome="pavimento"
@@ -512,169 +531,186 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
             attributi={[[{ name: "className", value: "pavimento" }]]}
           />
           <Oggetto nome="tavolo_1">
-            
-          <Sedia
-              id={mappa[4].Seats[0].id}
+            <Sedia
+              sedia={mappa[4].Seats[0]}
+              room={mappa[4]}
               coordinate={[
                 "M601.3 116.1l24.1-3c3.5-.6 7.1 1 9 4 1.6 10.2 1.6 20.7 0 30.9-1.9 3-5.5 4.5-9 4l-24.1-3c-2.7-.6-4.7-3.4-5-7v-19c.3-3.5 2.3-6.4 5-6.9z",
                 "M595.8 116.8c.3-.8 1.3-1.3 2.2-1 .9.3 1.4 1.2 1.1 2-2.4 9.8-2.4 20 0 29.9-.2.6-.7 1.1-1.4 1.3-.7.2-1.4.1-2-.3-2.7-10.5-2.7-21.4.1-31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[1].id}
+              sedia={mappa[4].Seats[1]}
+              room={mappa[4]}
               coordinate={[
                 "M679.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M678.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
 
-<Sedia
-              id={mappa[4].Seats[2].id}
+            <Sedia
+              sedia={mappa[4].Seats[2]}
+              room={mappa[4]}
               coordinate={[
                 "M739.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M738.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
 
             <Sedia
-              id={mappa[4].Seats[3].id}
+              sedia={mappa[4].Seats[3]}
+              room={mappa[4]}
               coordinate={[
                 "M799.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M798.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[4].id}
+              sedia={mappa[4].Seats[4]}
+              room={mappa[4]}
               coordinate={[
                 "M859.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M858.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[5].id}
+              sedia={mappa[4].Seats[5]}
+              room={mappa[4]}
               coordinate={[
                 "M919.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M918.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[6].id}
+              sedia={mappa[4].Seats[6]}
+              room={mappa[4]}
               coordinate={[
                 "M979.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M978.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.8-2.4-20-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[7].id}
+              sedia={mappa[4].Seats[7]}
+              room={mappa[4]}
               coordinate={[
                 "M1039.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.5-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M1038.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.9-2.4-20.1-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[8].id}
+              sedia={mappa[4].Seats[8]}
+              room={mappa[4]}
               coordinate={[
                 "M1099.4 70.8l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.6-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M1098.7 65.3c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.9-2.4-20.1-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[9].id}
+              sedia={mappa[4].Seats[9]}
+              room={mappa[4]}
               coordinate={[
                 "M1144.7 148.9l-24.1 3c-3.5.6-7.1-1-9-4-1.6-10.2-1.6-20.7 0-30.9 1.9-3 5.5-4.6 9-4l24.1 3c2.7.6 4.7 3.4 5 7v19c-.3 3.5-2.3 6.4-5 6.9z",
                 "M1150.2 148.2c-.3.8-1.3 1.3-2.2 1-.9-.3-1.4-1.2-1.1-2 2.4-9.9 2.4-20.1 0-29.9.2-.6.7-1.1 1.4-1.3.7-.2 1.4-.1 2 .3 2.7 10.5 2.7 21.4-.1 31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[10].id}
+              sedia={mappa[4].Seats[10]}
+              room={mappa[4]}
               coordinate={[
                 "M1066.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M1067.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[11].id}
+              sedia={mappa[4].Seats[11]}
+              room={mappa[4]}
               coordinate={[
                 "M1006.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M1007.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[12].id}
+              sedia={mappa[4].Seats[12]}
+              room={mappa[4]}
               coordinate={[
                 "M946.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M947.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[13].id}
+              sedia={mappa[4].Seats[13]}
+              room={mappa[4]}
               coordinate={[
                 "M886.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M887.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[14].id}
+              sedia={mappa[4].Seats[14]}
+              room={mappa[4]}
               coordinate={[
                 "M826.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M827.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[15].id}
+              sedia={mappa[4].Seats[15]}
+              room={mappa[4]}
               coordinate={[
                 "M766.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M767.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[16].id}
+              sedia={mappa[4].Seats[16]}
+              room={mappa[4]}
               coordinate={[
                 "M706.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M707.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[4].Seats[17].id}
+              sedia={mappa[4].Seats[17]}
+              room={mappa[4]}
               coordinate={[
                 "M646.6 194.2l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.5 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-18.9c-3.6-.3-6.5-2.3-7-5z",
                 "M647.3 199.7c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.8 2.4 20 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <ellipse
@@ -733,59 +769,64 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
           />
 
           <Oggetto nome="tavolo_1">
-          
-          <Sedia
-              id={mappa[5].Seats[0].id}
+            <Sedia
+              sedia={mappa[5].Seats[0]}
+              room={mappa[5]}
               coordinate={[
                 "M1061.8 529.6l24.1-3c3.5-.6 7.1 1 9 4 1.6 10.2 1.6 20.7 0 30.9-1.9 3-5.5 4.6-9 4l-24.1-3c-2.7-.6-4.7-3.4-5-7v-18.9c.3-3.6 2.3-6.5 5-7z",
                 "M1056.3 530.3c.3-.8 1.3-1.3 2.2-1 .9.3 1.4 1.2 1.1 2-2.4 9.9-2.4 20.1 0 29.9-.2.6-.7 1.1-1.4 1.3-.7.2-1.4.1-2-.3-2.7-10.5-2.7-21.4.1-31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[5].Seats[1].id}
+              sedia={mappa[5].Seats[1]}
+              room={mappa[5]}
               coordinate={[
                 "M1139.9 484.3l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.6-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M1139.2 478.8c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.9-2.4-20.1-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[5].Seats[2].id}
+              sedia={mappa[5].Seats[2]}
+              room={mappa[5]}
               coordinate={[
                 "M1199.9 484.3l3 24.1c.6 3.5-1 7.1-4 9-10.2 1.6-20.7 1.6-30.9 0-3-1.9-4.6-5.5-4-9l3-24.1c.6-2.7 3.4-4.7 7-5h18.9c3.6.3 6.5 2.3 7 5z",
                 "M1199.2 478.8c.8.3 1.3 1.3 1 2.2-.3.9-1.2 1.4-2 1.1-9.9-2.4-20.1-2.4-29.9 0-.6-.2-1.1-.7-1.3-1.4-.2-.7-.1-1.4.3-2 10.5-2.7 21.4-2.7 31.9.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[5].Seats[3].id}
+              sedia={mappa[5].Seats[3]}
+              room={mappa[5]}
               coordinate={[
                 "M1245.2 562.4l-24.1 3c-3.5.6-7.1-1-9-4-1.6-10.2-1.6-20.7 0-30.9 1.9-3 5.5-4.6 9-4l24.1 3c2.7.6 4.7 3.4 5 7v18.9c-.3 3.6-2.3 6.5-5 7z",
                 "M1250.7 561.7c-.3.8-1.3 1.3-2.2 1-.9-.3-1.4-1.2-1.1-2 2.4-9.9 2.4-20.1 0-29.9.2-.6.7-1.1 1.4-1.3.7-.2 1.4-.1 2 .3 2.7 10.5 2.7 21.4-.1 31.9",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[5].Seats[4].id}
+              sedia={mappa[5].Seats[4]}
+              room={mappa[5]}
               coordinate={[
                 "M1167.1 607.7l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
                 "M1167.8 613.2c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
             <Sedia
-              id={mappa[5].Seats[5].id}
+              sedia={mappa[5].Seats[5]}
+              room={mappa[5]}
               coordinate={[
                 "M1107.1 607.7l-3-24.1c-.6-3.5 1-7.1 4-9 10.2-1.6 20.7-1.6 30.9 0 3 1.9 4.6 5.5 4 9l-3 24.1c-.6 2.7-3.4 4.7-7 5h-19c-3.5-.3-6.4-2.3-6.9-5z",
                 "M1107.8 613.2c-.8-.3-1.3-1.3-1-2.2.3-.9 1.2-1.4 2-1.1 9.9 2.4 20.1 2.4 29.9 0 .6.2 1.1.7 1.3 1.4.2.7.1 1.4-.3 2-10.5 2.7-21.4 2.7-31.9-.1",
               ]}
-              selected={sedia}
+              selected={sedia_selected}
               handleClick={handleClick}
             />
 
@@ -823,7 +864,6 @@ const MapSVG = ({ handleClick, mappa, sedia }) => {
             attributi={[[{ name: "className", value: "muro" }]]}
           />
         </Oggetto>
-
       </svg>
     )
   );

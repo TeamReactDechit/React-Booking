@@ -1,7 +1,7 @@
 import { handleResponse, handleError } from "./apiUtils";
 import initialState  from "../redux/reducers/initialState";
 
-export function getSeatLocations(seat) {debugger
+export function getSeatLocations(seat) {
   return fetch(initialState.baseurl + "/seat/"+seat.sedia_id,{
     method: "GET",
     headers: { 

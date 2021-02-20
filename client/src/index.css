@@ -53,3 +53,14 @@ code {
   background-color: var(--page-background-color);
   border-color: var(--page-background-color);
 }
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #fff;
+  opacity: 1;
+}
+
+input[role="button"]:focus,
+input:focus,
+button:focus {
+    outline: none;
+}

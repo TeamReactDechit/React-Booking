@@ -15,7 +15,7 @@ const BookingPage = ({ location, prenotations, locations, findAllLocattionsSeats
       .catch((error) => {});
   }, []);
 
-  function handleClick(event, id) {debugger
+  function handleClick(event, id) {
     setSedia({ sedia_id: id });
   }
 
@@ -25,7 +25,7 @@ const BookingPage = ({ location, prenotations, locations, findAllLocattionsSeats
         <h1>Seleziona il posto</h1> 
       </div>
       <div className="col-6">
-        <MapSVG handleClick={handleClick} mappa={locations} sedia={sedia}/>
+        <MapSVG handleClick={handleClick} mappa={locations} sedia_selected={sedia}/>
       </div>
       <div className="col-6">
           {sedia?.sedia_id&&

@@ -30,7 +30,6 @@ const HomePage = ({findAllPrenotations, history}) => {
     event.preventDefault();
 
     if (!validateDataForm()) return;
-    debugger
     findAllPrenotations(startDate)
     .then(() => {
       history.push({

@@ -38,7 +38,7 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
                 Data
               </Form.Label>
               <Col>
-                <Form.Control plaintext readOnly value={startDate} />
+                <Form.Control type="data" plaintext readOnly value={startDate} name="data"/>
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="stanza">
@@ -46,7 +46,7 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
                 Nome stanza
               </Form.Label>
               <Col>
-                <Form.Control plaintext readOnly value={seats[0]?.Location.name} />
+                <Form.Control plaintext type="text" readOnly value={seats[0]?.Location.name} name="name"/>
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="sedia">
@@ -54,7 +54,7 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
                 Sedia numero
               </Form.Label>
               <Col>
-                <Form.Control plaintext readOnly value={seats[0]?.number} />
+                <Form.Control plaintext type="number" readOnly value={seats[0]?.number} name="number"/>
               </Col>
             </Form.Group>
 

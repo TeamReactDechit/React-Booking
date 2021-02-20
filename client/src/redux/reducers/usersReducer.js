@@ -7,7 +7,6 @@ export default function usersReducer(state = initialState.user, action) {
         localStorage.setItem("token", JSON.stringify(action.user.data));
         return action.user.data;
       case types.CREATE_USER_SUCCESS:
-        debugger;
         return [...state,{...action.user.data}];
       default:
         return state;
