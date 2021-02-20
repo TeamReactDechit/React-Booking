@@ -1,6 +1,6 @@
 /**
  * 
- * @param {date} in formato aaaa-dd-mm
+ * @param {date} in formato aaaa-mm-dd
  * trasforma la data in formato UTC alle ore 00:00
  */
 const getDate = (date) =>{
@@ -11,6 +11,6 @@ const getDate = (date) =>{
     return dateNumber;
 }
 
-module.exports=  {
+module.exports = {
     getDate
-} ;
+};

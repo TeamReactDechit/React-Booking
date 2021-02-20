@@ -1,11 +1,9 @@
 const express = require('express');
 const md5 = require("md5");
 const jwt = require('jsonwebtoken');
-
 const router = express.Router();
-const Users = require('../models').Users;
 
-const accessTokenSecret = 'youraccesstokensecret';
+const Users = require('../models').Users;
 
 
 /* Login */
@@ -29,8 +27,17 @@ router.post("/login", (req, res, next) => {
     where: data
   })
   .then((user) => {
+    let payload = {
+        id: user.id, 
+        email: user.email, 
+        role: user.role
+    };
     if(user){
-      const accessToken = jwt.sign({id: user.id, email: user.email, role: user.role }, accessTokenSecret);
+      const accessToken = jwt.sign(
+        payload,
+        process.env.JWT_SECRET,
+        {expiresIn: process.env.JWT_EXPIRES_IN}
+      );
       res.json({
         "message": "you are now logged as "+user.email,
         "token": accessToken,

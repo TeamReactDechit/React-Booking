@@ -6,7 +6,10 @@ const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const session = require('express-session');
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
+
 
 // models
 const models = require("./models");

@@ -3,6 +3,22 @@ const router = express.Router();
 
 const Prenotations = require('../models').Prenotations;
 const {getDate} = require('../helpers/helpers');
+const {authenticateJWT} = require('../middleware/authenticateJWT');
+
+
+//test to verify authentication
+router.get("/prenotations", authenticateJWT, (req, res, next) => {
+    Prenotations.findAll()
+    .then((prenotations) => {
+        res.json({
+            "message":"success",
+            "data":prenotations
+        });
+    })
+    .catch((err) => {
+        res.status(400).json({"error":err.message});
+    });
+});
 
 router.post('/all/prenotations', async (req, res) => {
     console.log("----Cerca tutte le prenotazioni----");
