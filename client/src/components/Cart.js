@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import MyTimePicker from "./MyTimePicker";
-import { getSeat } from "../redux/actions/seatsActions";
 import { connect } from "react-redux";
 
-const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
-  const [cart, setCart] = useState();
-  const [time, setTime] = useState();
+const Cart = ({ prenotations, cart, handleSubmit, handleChange, validateForm }) => {
+
+  
   const [booking, setBooking] = useState();
 
   useEffect(() => {
-    
-    if(sedia?.sedia_id){
-      setBooking(prenotations.filter(p => p.seat_id == sedia?.sedia_id).map(h => h.hour));
-      getSeat(sedia)
-      .catch((error) => {
-        console.log("errore-seats")
-      });
+    if(cart){
+      setBooking(prenotations.filter(p => p.seat_id == cart.Seat.id).map(h => h.hour));
     }
-  }, [sedia]);
+   
+  }, [cart]);
 
+  
 
   return (
     <>
@@ -32,13 +28,14 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
               conferma la prenotazione
             </Card.Subtitle>
             <Card.Text></Card.Text>
-            <Form>
+            <Form onSubmit={handleSubmit}>
+
             <Form.Group as={Row} controlId="data">
               <Form.Label column sm="3">
                 Data
               </Form.Label>
               <Col>
-                <Form.Control type="data" plaintext readOnly value={startDate} name="data"/>
+                <Form.Control type="date" plaintext readOnly value={cart?.date} name="date"/>
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="stanza">
@@ -46,7 +43,7 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
                 Nome stanza
               </Form.Label>
               <Col>
-                <Form.Control plaintext type="text" readOnly value={seats[0]?.Location.name} name="name"/>
+                <Form.Control plaintext type="text" readOnly value={cart?.Seat.Location.name} name="name"/>
               </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="sedia">
@@ -54,7 +51,7 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
                 Sedia numero
               </Form.Label>
               <Col>
-                <Form.Control plaintext type="number" readOnly value={seats[0]?.number} name="number"/>
+                <Form.Control plaintext type="number" readOnly value={cart?.Seat.number} name="number"/>
               </Col>
             </Form.Group>
 
@@ -63,10 +60,13 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
                 Seleziona orario
               </Form.Label>
               <Col>
-              <MyTimePicker start="08:00" end="19:00" step={60} range={booking}/>
+              <MyTimePicker start="08:00" end="19:00" step={60} range={booking} handleChange={handleChange}/>
               </Col>
             </Form.Group>
               
+              <Button className="mt-3 btn-dechit" size="lg" type="submit" >
+                Conferma
+              </Button>
               </Form>
           </Card.Body>
         </Card>
@@ -78,12 +78,12 @@ const Cart = ({ startDate, sedia, prenotations, getSeat, seats }) => {
 function mapStateToProps(state) {
   return {
     prenotations: state.prenotations,
-    seats: state.seats,
+    user: state.utente,
   };
 }
 
 const mapDispatchToProps = {
-  getSeat,
+  
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

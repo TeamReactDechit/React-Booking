@@ -40,4 +40,11 @@ async function findDatePrenotations(pars = {}) {
     });
 }
 
+router.post('/save/prenotations', async (req, res) => {
+    console.log("----salva prenotazioni----");
+    const params = req.body;
+    console.log(params)
+       
+    });
+
 module.exports = router;

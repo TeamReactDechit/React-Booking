@@ -12,4 +12,16 @@ export function getPrenotations(date) {
     })
       .then(handleResponse)
       .catch(handleError);
-  }
+}
+
+export function savePrenotation(date) {
+  return fetch(initialState.baseurl + "/save/prenotations",{
+    method: "POST",
+    headers: { 
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(date)
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}

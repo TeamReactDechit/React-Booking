@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
-const MyTimePicker = ({ start, end, step, range }) => {
+const MyTimePicker = ({ start, end, step, range, handleChange }) => {
   const [timeRange, setTimeRange] = useState([]);
   
   useEffect(() => {
@@ -30,7 +30,7 @@ const MyTimePicker = ({ start, end, step, range }) => {
   }, [range]);
 
   return (
-    <select>
+    <select name="hour" onChange={handleChange}>
       <option>Select..</option>
       {timeRange?.map((op, index) => (
         <option key={index} value={op}>

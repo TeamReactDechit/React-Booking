@@ -21,3 +21,22 @@ export function findAllPrenotations(prenotations) {
         });
     };
 }
+
+export function loadSavePrenotationSuccess(prenotations) {
+    return { type: types.SAVE_PRENOTATION_SUCCESS, prenotations };
+  }
+  
+export function savePrenotations(prenotations) {
+    return function(dispatch) {
+    dispatch(beginApiCall());
+    return prenotationsApi
+        .savePrenotation(prenotations)
+        .then(p => {
+        dispatch(loadSavePrenotationSuccess(p));
+        })
+        .catch(error => {
+        dispatch(apiCallError(error));
+        throw error;
+        });
+    };
+}

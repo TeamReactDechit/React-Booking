@@ -6,7 +6,7 @@ const Sedia = ({ sedia, room, coordinate, handleClick, selected }) => {
 
   useEffect(() => {
     if (selected) {
-      if (selected.sedia_id == sedia.id) {
+      if (selected == sedia.id) {
         setEnabled(true);
       } else {
         setEnabled(false);
