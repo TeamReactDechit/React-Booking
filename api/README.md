@@ -40,7 +40,7 @@ Il parametro JWT_EXPIRES_IN invalida il token di autenticazione, anche se è cor
 ## (bozza) Database structure
 Image:
 
-![Database](database/diagram.jpg)
+![Database](database/diagram.png)
 
 > Database structure.
 
